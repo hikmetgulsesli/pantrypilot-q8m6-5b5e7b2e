@@ -1,0 +1,833 @@
+[
+  {
+    "screenId": "685e2582bc584866b697505fe84f4382",
+    "screenTitle": "Empty and Error Recovery - PantryPilot Q8M6",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "Pantry",
+        "href": "#",
+        "line": 182
+      },
+      {
+        "type": "link",
+        "label": "Insights",
+        "href": "#",
+        "line": 186
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 190
+      },
+      {
+        "type": "button",
+        "label": "Add Item",
+        "line": 211
+      },
+      {
+        "type": "button",
+        "label": "Retry Load",
+        "line": 250
+      },
+      {
+        "type": "button",
+        "label": "Create First Item",
+        "line": 254
+      },
+      {
+        "type": "button",
+        "label": "Clear All Filters",
+        "line": 260
+      },
+      {
+        "type": "input",
+        "label": "Search pantry...",
+        "inputType": "text",
+        "placeholder": "Search pantry...",
+        "line": 204
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "Pantry",
+        "href": "#",
+        "line": 182
+      },
+      {
+        "type": "link",
+        "label": "Insights",
+        "href": "#",
+        "line": 186
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 190
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "Add Item",
+        "line": 211
+      },
+      {
+        "type": "button",
+        "label": "Retry Load",
+        "line": 250
+      },
+      {
+        "type": "button",
+        "label": "Create First Item",
+        "line": 254
+      },
+      {
+        "type": "button",
+        "label": "Clear All Filters",
+        "line": 260
+      }
+    ],
+    "inputs": [
+      {
+        "type": "input",
+        "label": "Search pantry...",
+        "inputType": "text",
+        "placeholder": "Search pantry...",
+        "line": 204
+      }
+    ],
+    "hardcodedData": [],
+    "totalInteractive": 8,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  },
+  {
+    "screenId": "67fcff8a213249ee8a3f3153a099c984",
+    "screenTitle": "Item Operations - PantryPilot Q8M6",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "Pantry",
+        "href": "#",
+        "line": 113
+      },
+      {
+        "type": "link",
+        "label": "Insights",
+        "href": "#",
+        "line": 117
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 121
+      },
+      {
+        "type": "button",
+        "label": "menu",
+        "line": 132
+      },
+      {
+        "type": "button",
+        "label": "sync",
+        "line": 142
+      },
+      {
+        "type": "button",
+        "label": "Item",
+        "line": 146
+      },
+      {
+        "type": "button",
+        "label": "All Items",
+        "line": 189
+      },
+      {
+        "type": "button",
+        "label": "Produce",
+        "line": 190
+      },
+      {
+        "type": "button",
+        "label": "Dairy",
+        "line": 191
+      },
+      {
+        "type": "button",
+        "label": "Canned Goods",
+        "line": 192
+      },
+      {
+        "type": "button",
+        "label": "Expiring",
+        "line": 193
+      },
+      {
+        "type": "button",
+        "label": "remove",
+        "line": 212
+      },
+      {
+        "type": "button",
+        "label": "add",
+        "line": 214
+      },
+      {
+        "type": "button",
+        "label": "remove",
+        "line": 226
+      },
+      {
+        "type": "button",
+        "label": "add",
+        "line": 228
+      },
+      {
+        "type": "button",
+        "label": "remove",
+        "line": 240
+      },
+      {
+        "type": "button",
+        "label": "add",
+        "line": 242
+      },
+      {
+        "type": "button",
+        "label": "close",
+        "line": 257
+      },
+      {
+        "type": "button",
+        "label": "Edit",
+        "line": 300
+      },
+      {
+        "type": "button",
+        "label": "Reorder",
+        "line": 301
+      },
+      {
+        "type": "input",
+        "label": "Search inventory...",
+        "inputType": "text",
+        "placeholder": "Search inventory...",
+        "line": 139
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "Pantry",
+        "href": "#",
+        "line": 113
+      },
+      {
+        "type": "link",
+        "label": "Insights",
+        "href": "#",
+        "line": 117
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 121
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "menu",
+        "line": 132
+      },
+      {
+        "type": "button",
+        "label": "sync",
+        "line": 142
+      },
+      {
+        "type": "button",
+        "label": "Item",
+        "line": 146
+      },
+      {
+        "type": "button",
+        "label": "All Items",
+        "line": 189
+      },
+      {
+        "type": "button",
+        "label": "Produce",
+        "line": 190
+      },
+      {
+        "type": "button",
+        "label": "Dairy",
+        "line": 191
+      },
+      {
+        "type": "button",
+        "label": "Canned Goods",
+        "line": 192
+      },
+      {
+        "type": "button",
+        "label": "Expiring",
+        "line": 193
+      },
+      {
+        "type": "button",
+        "label": "remove",
+        "line": 212
+      },
+      {
+        "type": "button",
+        "label": "add",
+        "line": 214
+      },
+      {
+        "type": "button",
+        "label": "remove",
+        "line": 226
+      },
+      {
+        "type": "button",
+        "label": "add",
+        "line": 228
+      },
+      {
+        "type": "button",
+        "label": "remove",
+        "line": 240
+      },
+      {
+        "type": "button",
+        "label": "add",
+        "line": 242
+      },
+      {
+        "type": "button",
+        "label": "close",
+        "line": 257
+      },
+      {
+        "type": "button",
+        "label": "Edit",
+        "line": 300
+      },
+      {
+        "type": "button",
+        "label": "Reorder",
+        "line": 301
+      }
+    ],
+    "inputs": [
+      {
+        "type": "input",
+        "label": "Search inventory...",
+        "inputType": "text",
+        "placeholder": "Search inventory...",
+        "line": 139
+      }
+    ],
+    "hardcodedData": [],
+    "totalInteractive": 21,
+    "requiresRouter": false,
+    "requiresDragDrop": true
+  },
+  {
+    "screenId": "d252cf61308342a59c99065d9b5d045e",
+    "screenTitle": "Item Editor - PantryPilot Q8M6",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "Pantry",
+        "href": "#",
+        "line": 124
+      },
+      {
+        "type": "link",
+        "label": "Insights",
+        "href": "#",
+        "line": 131
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 137
+      },
+      {
+        "type": "link",
+        "label": "Back to Pantry",
+        "href": "#",
+        "line": 169
+      },
+      {
+        "type": "button",
+        "label": "menu",
+        "line": 149
+      },
+      {
+        "type": "button",
+        "label": "Item",
+        "line": 158
+      },
+      {
+        "type": "button",
+        "label": "remove",
+        "line": 225
+      },
+      {
+        "type": "button",
+        "label": "add",
+        "line": 229
+      },
+      {
+        "type": "button",
+        "label": "Cancel",
+        "line": 290
+      },
+      {
+        "type": "button",
+        "label": "Save Changes",
+        "line": 293
+      },
+      {
+        "type": "input",
+        "label": "text",
+        "inputType": "text",
+        "line": 195
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 206
+      },
+      {
+        "type": "input",
+        "label": "text",
+        "inputType": "text",
+        "line": 228
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 234
+      },
+      {
+        "type": "input",
+        "label": "date",
+        "inputType": "date",
+        "line": 248
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 264
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 270
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 276
+      },
+      {
+        "type": "form",
+        "label": "form",
+        "line": 186
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "Pantry",
+        "href": "#",
+        "line": 124
+      },
+      {
+        "type": "link",
+        "label": "Insights",
+        "href": "#",
+        "line": 131
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 137
+      },
+      {
+        "type": "link",
+        "label": "Back to Pantry",
+        "href": "#",
+        "line": 169
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "menu",
+        "line": 149
+      },
+      {
+        "type": "button",
+        "label": "Item",
+        "line": 158
+      },
+      {
+        "type": "button",
+        "label": "remove",
+        "line": 225
+      },
+      {
+        "type": "button",
+        "label": "add",
+        "line": 229
+      },
+      {
+        "type": "button",
+        "label": "Cancel",
+        "line": 290
+      },
+      {
+        "type": "button",
+        "label": "Save Changes",
+        "line": 293
+      }
+    ],
+    "inputs": [
+      {
+        "type": "input",
+        "label": "text",
+        "inputType": "text",
+        "line": 195
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 206
+      },
+      {
+        "type": "input",
+        "label": "text",
+        "inputType": "text",
+        "line": 228
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 234
+      },
+      {
+        "type": "input",
+        "label": "date",
+        "inputType": "date",
+        "line": 248
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 264
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 270
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 276
+      }
+    ],
+    "hardcodedData": [],
+    "totalInteractive": 19,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  },
+  {
+    "screenId": "aeede69111e441aa8353ff45865b48ca",
+    "screenTitle": "Settings and Preferences - PantryPilot Q8M6",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "Pantry",
+        "href": "#",
+        "line": 118
+      },
+      {
+        "type": "link",
+        "label": "Insights",
+        "href": "#",
+        "line": 122
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 126
+      },
+      {
+        "type": "link",
+        "label": "Pantry",
+        "href": "#",
+        "line": 304
+      },
+      {
+        "type": "link",
+        "label": "Insights",
+        "href": "#",
+        "line": 308
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 312
+      },
+      {
+        "type": "button",
+        "label": "menu",
+        "line": 137
+      },
+      {
+        "type": "button",
+        "label": "search",
+        "line": 150
+      },
+      {
+        "type": "button",
+        "label": "Item",
+        "line": 153
+      },
+      {
+        "type": "button",
+        "label": "Compact",
+        "line": 202
+      },
+      {
+        "type": "button",
+        "label": "Comfortable",
+        "line": 205
+      },
+      {
+        "type": "button",
+        "label": "Manage All",
+        "line": 249
+      },
+      {
+        "type": "button",
+        "label": "delete",
+        "line": 258
+      },
+      {
+        "type": "button",
+        "label": "delete",
+        "line": 268
+      },
+      {
+        "type": "button",
+        "label": "Reset to Defaults",
+        "line": 282
+      },
+      {
+        "type": "button",
+        "label": "Cancel",
+        "line": 286
+      },
+      {
+        "type": "button",
+        "label": "Save Preferences",
+        "line": 289
+      },
+      {
+        "type": "input",
+        "label": "Search settings...",
+        "inputType": "text",
+        "placeholder": "Search settings...",
+        "line": 148
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 181
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 188
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 224
+      },
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 235
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "Pantry",
+        "href": "#",
+        "line": 118
+      },
+      {
+        "type": "link",
+        "label": "Insights",
+        "href": "#",
+        "line": 122
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 126
+      },
+      {
+        "type": "link",
+        "label": "Pantry",
+        "href": "#",
+        "line": 304
+      },
+      {
+        "type": "link",
+        "label": "Insights",
+        "href": "#",
+        "line": 308
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 312
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "menu",
+        "line": 137
+      },
+      {
+        "type": "button",
+        "label": "search",
+        "line": 150
+      },
+      {
+        "type": "button",
+        "label": "Item",
+        "line": 153
+      },
+      {
+        "type": "button",
+        "label": "Compact",
+        "line": 202
+      },
+      {
+        "type": "button",
+        "label": "Comfortable",
+        "line": 205
+      },
+      {
+        "type": "button",
+        "label": "Manage All",
+        "line": 249
+      },
+      {
+        "type": "button",
+        "label": "delete",
+        "line": 258
+      },
+      {
+        "type": "button",
+        "label": "delete",
+        "line": 268
+      },
+      {
+        "type": "button",
+        "label": "Reset to Defaults",
+        "line": 282
+      },
+      {
+        "type": "button",
+        "label": "Cancel",
+        "line": 286
+      },
+      {
+        "type": "button",
+        "label": "Save Preferences",
+        "line": 289
+      }
+    ],
+    "inputs": [
+      {
+        "type": "input",
+        "label": "Search settings...",
+        "inputType": "text",
+        "placeholder": "Search settings...",
+        "line": 148
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 181
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 188
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 224
+      },
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 235
+      }
+    ],
+    "hardcodedData": [],
+    "totalInteractive": 22,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  }
+]
