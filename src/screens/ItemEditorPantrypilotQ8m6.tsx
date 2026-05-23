@@ -7,26 +7,69 @@
 // 3. Wire interactive controls through the typed actions prop
 // 4. Replace placeholder data with props/state
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ArrowLeft, Circle, Menu, Plus, Settings, TriangleAlert } from "lucide-react";
 
 
 export type ItemEditorPantrypilotQ8m6ActionId = "button-1-1" | "add-item-2" | "button-3-3" | "button-4-4" | "cancel-5" | "save-changes-6" | "pantry-1" | "insights-2" | "settings-3" | "back-to-pantry-4";
 
+export type ItemEditorPantrypilotQ8m6Draft = {
+  name: string;
+  category: string;
+  quantity: number;
+  unit: string;
+  expiresOn: string;
+  priority: string;
+};
+
+export type ItemEditorPantrypilotQ8m6Item = {
+  name: string;
+  category: string;
+  quantity: number;
+  unit: string;
+  expiresOn: string;
+};
+
+export type ItemEditorPantrypilotQ8m6Actions = Partial<
+  Record<Exclude<ItemEditorPantrypilotQ8m6ActionId, "save-changes-6">, () => void>
+> & {
+  "save-changes-6"?: (draft: ItemEditorPantrypilotQ8m6Draft) => void;
+};
+
 export interface ItemEditorPantrypilotQ8m6Props {
-  actions?: Partial<Record<ItemEditorPantrypilotQ8m6ActionId, () => void>>;
+  actions?: ItemEditorPantrypilotQ8m6Actions;
+  item?: ItemEditorPantrypilotQ8m6Item | null;
 }
 
-export function ItemEditorPantrypilotQ8m6({ actions }: ItemEditorPantrypilotQ8m6Props) {
-  const [itemName, setItemName] = useState("Organic Black Beans");
-  const [category, setCategory] = useState("canned");
-  const [quantity, setQuantity] = useState("4");
-  const [unit, setUnit] = useState("cans");
-  const [expiryDate, setExpiryDate] = useState("2025-08-14");
+export function ItemEditorPantrypilotQ8m6({ actions, item }: ItemEditorPantrypilotQ8m6Props) {
+  const [itemName, setItemName] = useState(item?.name ?? "Organic Black Beans");
+  const [category, setCategory] = useState(item?.category ?? "canned-goods");
+  const [quantity, setQuantity] = useState(String(item?.quantity ?? 4));
+  const [unit, setUnit] = useState(item?.unit ?? "cans");
+  const [expiryDate, setExpiryDate] = useState(item?.expiresOn ?? "2025-08-14");
   const [priority, setPriority] = useState("medium");
+
+  useEffect(() => {
+    if (!item) return;
+
+    setItemName(item.name);
+    setCategory(item.category);
+    setQuantity(String(item.quantity));
+    setUnit(item.unit);
+    setExpiryDate(item.expiresOn);
+  }, [item]);
 
   const adjustQuantity = (delta: number) => {
     setQuantity((currentQuantity) => String(Math.max(0, Number(currentQuantity || 0) + delta)));
+  };
+
+  const draft: ItemEditorPantrypilotQ8m6Draft = {
+    name: itemName.trim(),
+    category,
+    quantity: Math.max(0, Number(quantity || 0)),
+    unit,
+    expiresOn: expiryDate,
+    priority,
   };
 
   return (
@@ -125,10 +168,11 @@ export function ItemEditorPantrypilotQ8m6({ actions }: ItemEditorPantrypilotQ8m6
       <label className="font-label-bold text-label-bold text-on-surface" htmlFor="category">Category</label>
       <div className="relative w-full">
       <select className="appearance-none h-10 px-md pr-xl rounded-DEFAULT border border-outline-variant bg-surface-container-lowest focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors font-body-md text-body-md text-on-surface w-full cursor-pointer" id="category" value={category} onChange={(event) => setCategory(event.target.value)}>
-      <option value="canned">Canned Goods</option>
-      <option value="dry">Dry Goods &amp; Pasta</option>
-      <option value="baking">Baking Supplies</option>
-      <option value="spices">Spices &amp; Seasonings</option>
+      <option value="canned-goods">Canned Goods</option>
+      <option value="produce">Produce</option>
+      <option value="dairy">Dairy</option>
+      <option value="bakery">Bakery</option>
+      <option value="frozen">Frozen</option>
       </select>
       <Circle className="absolute right-md top-1/2 -translate-y-1/2 pointer-events-none text-secondary" aria-hidden={true} focusable="false" />
       </div>
@@ -211,7 +255,7 @@ export function ItemEditorPantrypilotQ8m6({ actions }: ItemEditorPantrypilotQ8m6
       <button className="h-8 px-md rounded-DEFAULT border border-outline bg-transparent text-secondary font-body-sm text-body-sm hover:bg-surface-container-low transition-colors" type="button" data-action-id="cancel-5" onClick={actions?.["cancel-5"]}>
                       Cancel
                   </button>
-      <button className="h-8 px-lg rounded-DEFAULT bg-primary text-on-primary font-body-sm text-body-sm font-bold hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm" type="submit" data-action-id="save-changes-6" onClick={actions?.["save-changes-6"]}>
+      <button className="h-8 px-lg rounded-DEFAULT bg-primary text-on-primary font-body-sm text-body-sm font-bold hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm" type="button" data-action-id="save-changes-6" onClick={() => actions?.["save-changes-6"]?.(draft)}>
                       Save Changes
                   </button>
       </div>

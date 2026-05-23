@@ -5,10 +5,10 @@ import {
   ItemOperationsPantrypilotQ8m6,
   SettingsAndPreferencesPantrypilotQ8m6,
   type EmptyAndErrorRecoveryPantrypilotQ8m6ActionId,
-  type ItemEditorPantrypilotQ8m6ActionId,
   type ItemOperationsPantrypilotQ8m6ActionId,
   type SettingsAndPreferencesPantrypilotQ8m6ActionId,
 } from './screens';
+import type { ItemEditorPantrypilotQ8m6Actions } from './screens/ItemEditorPantrypilotQ8m6';
 import { usePantryPilotStore } from './features/pantrypilot-q8m6/pantrypilot-q8m6.store';
 import { actCancelEdit } from './features/surf-item-editor/act_cancel_edit';
 import { actSaveRecord } from './features/surf-item-editor/act_save_record';
@@ -71,13 +71,13 @@ export default function App() {
     'settings-3': () => actions.navigate('settings'),
   };
 
-  const editorActions: Partial<Record<ItemEditorPantrypilotQ8m6ActionId, () => void>> = {
+  const editorActions: ItemEditorPantrypilotQ8m6Actions = {
     'button-1-1': () => actions.navigate('pantry'),
     'add-item-2': () => actCreateRecord(actions),
-    'button-3-3': () => actions.markAction('Item category details updated.'),
-    'button-4-4': () => actions.markAction('Item expiration details updated.'),
+    'button-3-3': () => actions.markAction('Item quantity decreased.'),
+    'button-4-4': () => actions.markAction('Item quantity increased.'),
     'cancel-5': () => actCancelEdit(actions),
-    'save-changes-6': () => actSaveRecord(actions),
+    'save-changes-6': (draft) => actSaveRecord(actions, snapshot.selectedRecord, draft),
     'pantry-1': () => actions.navigate('pantry'),
     'insights-2': () => actions.navigate('insights'),
     'settings-3': () => actions.navigate('settings'),
@@ -120,7 +120,7 @@ export default function App() {
         {snapshot.lastError && <span className="ml-2 font-semibold text-amber-700">{snapshot.lastError}</span>}
       </div>
       {activeRoute === 'pantry' && <ItemOperationsPantrypilotQ8m6 actions={pantryActions} />}
-      {activeRoute === 'editor' && <ItemEditorPantrypilotQ8m6 actions={editorActions} />}
+      {activeRoute === 'editor' && <ItemEditorPantrypilotQ8m6 actions={editorActions} item={snapshot.selectedRecord} />}
       {activeRoute === 'settings' && <SettingsAndPreferencesPantrypilotQ8m6 actions={settingsActions} />}
       {activeRoute === 'empty' && <EmptyAndErrorRecoveryPantrypilotQ8m6 actions={emptyActions} />}
       {activeRoute === 'insights' && <InsightsPlaceholder />}
