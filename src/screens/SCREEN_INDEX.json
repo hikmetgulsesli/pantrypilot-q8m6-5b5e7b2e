@@ -1,0 +1,386 @@
+[
+  {
+    "screenId": "685e2582bc584866b697505fe84f4382",
+    "title": "Empty and Error Recovery - PantryPilot Q8M6",
+    "componentName": "EmptyAndErrorRecoveryPantrypilotQ8m6",
+    "file": "src/screens/EmptyAndErrorRecoveryPantrypilotQ8m6.tsx",
+    "buttons": 4,
+    "inputs": 1,
+    "links": 3,
+    "actions": [
+      {
+        "id": "add-item-1",
+        "kind": "button",
+        "label": "Add Item",
+        "index": 0
+      },
+      {
+        "id": "retry-load-2",
+        "kind": "button",
+        "label": "Retry Load",
+        "index": 1
+      },
+      {
+        "id": "create-first-item-3",
+        "kind": "button",
+        "label": "Create First Item",
+        "index": 2
+      },
+      {
+        "id": "clear-all-filters-4",
+        "kind": "button",
+        "label": "Clear All Filters",
+        "index": 3
+      },
+      {
+        "id": "pantry-1",
+        "kind": "link",
+        "label": "Pantry",
+        "href": "#",
+        "index": 0
+      },
+      {
+        "id": "insights-2",
+        "kind": "link",
+        "label": "Insights",
+        "href": "#",
+        "index": 1
+      },
+      {
+        "id": "settings-3",
+        "kind": "link",
+        "label": "Settings",
+        "href": "#",
+        "index": 2
+      }
+    ]
+  },
+  {
+    "screenId": "67fcff8a213249ee8a3f3153a099c984",
+    "title": "Item Operations - PantryPilot Q8M6",
+    "componentName": "ItemOperationsPantrypilotQ8m6",
+    "file": "src/screens/ItemOperationsPantrypilotQ8m6.tsx",
+    "buttons": 17,
+    "inputs": 1,
+    "links": 3,
+    "actions": [
+      {
+        "id": "button-1-1",
+        "kind": "button",
+        "label": "Button 1",
+        "index": 0
+      },
+      {
+        "id": "sync-2",
+        "kind": "button",
+        "label": "Sync",
+        "index": 1
+      },
+      {
+        "id": "add-item-3",
+        "kind": "button",
+        "label": "Add Item",
+        "index": 2
+      },
+      {
+        "id": "all-items-4",
+        "kind": "button",
+        "label": "All Items",
+        "index": 3
+      },
+      {
+        "id": "produce-5",
+        "kind": "button",
+        "label": "Produce",
+        "index": 4
+      },
+      {
+        "id": "dairy-6",
+        "kind": "button",
+        "label": "Dairy",
+        "index": 5
+      },
+      {
+        "id": "canned-goods-7",
+        "kind": "button",
+        "label": "Canned Goods",
+        "index": 6
+      },
+      {
+        "id": "expiring-8",
+        "kind": "button",
+        "label": "Expiring",
+        "index": 7
+      },
+      {
+        "id": "button-9-9",
+        "kind": "button",
+        "label": "Button 9",
+        "index": 8
+      },
+      {
+        "id": "button-10-10",
+        "kind": "button",
+        "label": "Button 10",
+        "index": 9
+      },
+      {
+        "id": "button-11-11",
+        "kind": "button",
+        "label": "Button 11",
+        "index": 10
+      },
+      {
+        "id": "button-12-12",
+        "kind": "button",
+        "label": "Button 12",
+        "index": 11
+      },
+      {
+        "id": "button-13-13",
+        "kind": "button",
+        "label": "Button 13",
+        "index": 12
+      },
+      {
+        "id": "button-14-14",
+        "kind": "button",
+        "label": "Button 14",
+        "index": 13
+      },
+      {
+        "id": "button-15-15",
+        "kind": "button",
+        "label": "Button 15",
+        "index": 14
+      },
+      {
+        "id": "edit-16",
+        "kind": "button",
+        "label": "Edit",
+        "index": 15
+      },
+      {
+        "id": "reorder-17",
+        "kind": "button",
+        "label": "Reorder",
+        "index": 16
+      },
+      {
+        "id": "pantry-1",
+        "kind": "link",
+        "label": "Pantry",
+        "href": "#",
+        "index": 0
+      },
+      {
+        "id": "insights-2",
+        "kind": "link",
+        "label": "Insights",
+        "href": "#",
+        "index": 1
+      },
+      {
+        "id": "settings-3",
+        "kind": "link",
+        "label": "Settings",
+        "href": "#",
+        "index": 2
+      }
+    ]
+  },
+  {
+    "screenId": "d252cf61308342a59c99065d9b5d045e",
+    "title": "Item Editor - PantryPilot Q8M6",
+    "componentName": "ItemEditorPantrypilotQ8m6",
+    "file": "src/screens/ItemEditorPantrypilotQ8m6.tsx",
+    "buttons": 6,
+    "inputs": 6,
+    "links": 4,
+    "actions": [
+      {
+        "id": "button-1-1",
+        "kind": "button",
+        "label": "Button 1",
+        "index": 0
+      },
+      {
+        "id": "add-item-2",
+        "kind": "button",
+        "label": "Add Item",
+        "index": 1
+      },
+      {
+        "id": "button-3-3",
+        "kind": "button",
+        "label": "Button 3",
+        "index": 2
+      },
+      {
+        "id": "button-4-4",
+        "kind": "button",
+        "label": "Button 4",
+        "index": 3
+      },
+      {
+        "id": "cancel-5",
+        "kind": "button",
+        "label": "Cancel",
+        "index": 4
+      },
+      {
+        "id": "save-changes-6",
+        "kind": "button",
+        "label": "Save Changes",
+        "index": 5
+      },
+      {
+        "id": "pantry-1",
+        "kind": "link",
+        "label": "Pantry",
+        "href": "#",
+        "index": 0
+      },
+      {
+        "id": "insights-2",
+        "kind": "link",
+        "label": "Insights",
+        "href": "#",
+        "index": 1
+      },
+      {
+        "id": "settings-3",
+        "kind": "link",
+        "label": "Settings",
+        "href": "#",
+        "index": 2
+      },
+      {
+        "id": "back-to-pantry-4",
+        "kind": "link",
+        "label": "Back to Pantry",
+        "href": "#",
+        "index": 3
+      }
+    ]
+  },
+  {
+    "screenId": "aeede69111e441aa8353ff45865b48ca",
+    "title": "Settings and Preferences - PantryPilot Q8M6",
+    "componentName": "SettingsAndPreferencesPantrypilotQ8m6",
+    "file": "src/screens/SettingsAndPreferencesPantrypilotQ8m6.tsx",
+    "buttons": 11,
+    "inputs": 4,
+    "links": 6,
+    "actions": [
+      {
+        "id": "button-1-1",
+        "kind": "button",
+        "label": "Button 1",
+        "index": 0
+      },
+      {
+        "id": "button-2-2",
+        "kind": "button",
+        "label": "Button 2",
+        "index": 1
+      },
+      {
+        "id": "add-item-3",
+        "kind": "button",
+        "label": "Add Item",
+        "index": 2
+      },
+      {
+        "id": "compact-4",
+        "kind": "button",
+        "label": "Compact",
+        "index": 3
+      },
+      {
+        "id": "comfortable-5",
+        "kind": "button",
+        "label": "Comfortable",
+        "index": 4
+      },
+      {
+        "id": "manage-all-6",
+        "kind": "button",
+        "label": "Manage All",
+        "index": 5
+      },
+      {
+        "id": "button-7-7",
+        "kind": "button",
+        "label": "Button 7",
+        "index": 6
+      },
+      {
+        "id": "button-8-8",
+        "kind": "button",
+        "label": "Button 8",
+        "index": 7
+      },
+      {
+        "id": "reset-to-defaults-9",
+        "kind": "button",
+        "label": "Reset to Defaults",
+        "index": 8
+      },
+      {
+        "id": "cancel-10",
+        "kind": "button",
+        "label": "Cancel",
+        "index": 9
+      },
+      {
+        "id": "save-preferences-11",
+        "kind": "button",
+        "label": "Save Preferences",
+        "index": 10
+      },
+      {
+        "id": "pantry-1",
+        "kind": "link",
+        "label": "Pantry",
+        "href": "#",
+        "index": 0
+      },
+      {
+        "id": "insights-2",
+        "kind": "link",
+        "label": "Insights",
+        "href": "#",
+        "index": 1
+      },
+      {
+        "id": "settings-3",
+        "kind": "link",
+        "label": "Settings",
+        "href": "#",
+        "index": 2
+      },
+      {
+        "id": "pantry-4",
+        "kind": "link",
+        "label": "Pantry",
+        "href": "#",
+        "index": 3
+      },
+      {
+        "id": "insights-5",
+        "kind": "link",
+        "label": "Insights",
+        "href": "#",
+        "index": 4
+      },
+      {
+        "id": "settings-6",
+        "kind": "link",
+        "label": "Settings",
+        "href": "#",
+        "index": 5
+      }
+    ]
+  }
+]
