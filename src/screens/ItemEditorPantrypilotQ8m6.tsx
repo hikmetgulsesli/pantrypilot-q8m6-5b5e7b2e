@@ -7,6 +7,7 @@
 // 3. Wire interactive controls through the typed actions prop
 // 4. Replace placeholder data with props/state
 
+import { useState } from "react";
 import { ArrowLeft, Circle, Menu, Plus, Settings, TriangleAlert } from "lucide-react";
 
 
@@ -17,6 +18,17 @@ export interface ItemEditorPantrypilotQ8m6Props {
 }
 
 export function ItemEditorPantrypilotQ8m6({ actions }: ItemEditorPantrypilotQ8m6Props) {
+  const [itemName, setItemName] = useState("Organic Black Beans");
+  const [category, setCategory] = useState("canned");
+  const [quantity, setQuantity] = useState("4");
+  const [unit, setUnit] = useState("cans");
+  const [expiryDate, setExpiryDate] = useState("2025-08-14");
+  const [priority, setPriority] = useState("medium");
+
+  const adjustQuantity = (delta: number) => {
+    setQuantity((currentQuantity) => String(Math.max(0, Number(currentQuantity || 0) + delta)));
+  };
+
   return (
     <>
       {/* SideNavBar (Shared Component) */}
@@ -101,7 +113,7 @@ export function ItemEditorPantrypilotQ8m6({ actions }: ItemEditorPantrypilotQ8m6
       {/* Field: Item Name */}
       <div className="flex flex-col gap-xs">
       <label className="font-label-bold text-label-bold text-on-surface" htmlFor="item-name">Item Name <span className="text-error">*</span></label>
-      <input aria-describedby="item-name-error" aria-invalid="true" className="h-10 px-md rounded-DEFAULT border border-error bg-surface-container-lowest focus:border-error focus:ring-1 focus:ring-error outline-none transition-colors font-body-md text-body-md text-on-surface w-full" id="item-name" type="text" value="Organic Black Beans" />
+      <input aria-describedby="item-name-error" aria-invalid="true" className="h-10 px-md rounded-DEFAULT border border-error bg-surface-container-lowest focus:border-error focus:ring-1 focus:ring-error outline-none transition-colors font-body-md text-body-md text-on-surface w-full" id="item-name" type="text" value={itemName} onChange={(event) => setItemName(event.target.value)} />
       {/* Validation Message Inline */}
       <p className="font-body-sm text-body-sm text-error mt-xs flex items-center gap-[4px]" id="item-name-error">
       <TriangleAlert className="text-[14px]" aria-hidden={true} focusable="false" />
@@ -112,7 +124,7 @@ export function ItemEditorPantrypilotQ8m6({ actions }: ItemEditorPantrypilotQ8m6
       <div className="flex flex-col gap-xs">
       <label className="font-label-bold text-label-bold text-on-surface" htmlFor="category">Category</label>
       <div className="relative w-full">
-      <select className="appearance-none h-10 px-md pr-xl rounded-DEFAULT border border-outline-variant bg-surface-container-lowest focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors font-body-md text-body-md text-on-surface w-full cursor-pointer" id="category">
+      <select className="appearance-none h-10 px-md pr-xl rounded-DEFAULT border border-outline-variant bg-surface-container-lowest focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors font-body-md text-body-md text-on-surface w-full cursor-pointer" id="category" value={category} onChange={(event) => setCategory(event.target.value)}>
       <option value="canned">Canned Goods</option>
       <option value="dry">Dry Goods &amp; Pasta</option>
       <option value="baking">Baking Supplies</option>
@@ -131,16 +143,16 @@ export function ItemEditorPantrypilotQ8m6({ actions }: ItemEditorPantrypilotQ8m6
       <label className="font-label-bold text-label-bold text-on-surface">Current Quantity</label>
       <div className="flex items-center gap-xs">
       <div className="flex items-center border border-outline-variant rounded-DEFAULT overflow-hidden bg-surface-container-lowest h-10">
-      <button className="w-10 h-full flex items-center justify-center hover:bg-surface-container-low text-on-surface-variant transition-colors border-r border-outline-variant" type="button" data-action-id="button-3-3" onClick={actions?.["button-3-3"]}>
+      <button className="w-10 h-full flex items-center justify-center hover:bg-surface-container-low text-on-surface-variant transition-colors border-r border-outline-variant" type="button" data-action-id="button-3-3" onClick={() => { adjustQuantity(-1); actions?.["button-3-3"]?.(); }}>
       <Circle aria-hidden={true} focusable="false" />
       </button>
-      <input className="w-12 h-full text-center border-none focus:ring-0 font-mono-data text-mono-data bg-transparent text-on-surface p-0" type="text" value="4" />
-      <button className="w-10 h-full flex items-center justify-center hover:bg-surface-container-low text-on-surface-variant transition-colors border-l border-outline-variant" type="button" data-action-id="button-4-4" onClick={actions?.["button-4-4"]}>
+      <input className="w-12 h-full text-center border-none focus:ring-0 font-mono-data text-mono-data bg-transparent text-on-surface p-0" type="text" inputMode="numeric" value={quantity} onChange={(event) => setQuantity(event.target.value.replace(/\D/g, ""))} />
+      <button className="w-10 h-full flex items-center justify-center hover:bg-surface-container-low text-on-surface-variant transition-colors border-l border-outline-variant" type="button" data-action-id="button-4-4" onClick={() => { adjustQuantity(1); actions?.["button-4-4"]?.(); }}>
       <Plus aria-hidden={true} focusable="false" />
       </button>
       </div>
       <div className="relative w-[100px]">
-      <select className="appearance-none h-10 px-sm pr-lg rounded-DEFAULT border border-outline-variant bg-surface-container-lowest focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors font-body-md text-body-md text-on-surface w-full cursor-pointer">
+      <select className="appearance-none h-10 px-sm pr-lg rounded-DEFAULT border border-outline-variant bg-surface-container-lowest focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors font-body-md text-body-md text-on-surface w-full cursor-pointer" value={unit} onChange={(event) => setUnit(event.target.value)}>
       <option value="cans">Cans</option>
       <option value="boxes">Boxes</option>
       <option value="lbs">lbs</option>
@@ -154,7 +166,7 @@ export function ItemEditorPantrypilotQ8m6({ actions }: ItemEditorPantrypilotQ8m6
       <div className="flex flex-col gap-xs">
       <label className="font-label-bold text-label-bold text-on-surface" htmlFor="expiry">Expiry Date</label>
       <div className="relative w-full">
-      <input className="appearance-none h-10 px-md rounded-DEFAULT border border-outline-variant bg-surface-container-lowest focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors font-body-md text-body-md text-on-surface w-full cursor-pointer" id="expiry" type="date" value="2025-08-14" />
+      <input className="appearance-none h-10 px-md rounded-DEFAULT border border-outline-variant bg-surface-container-lowest focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors font-body-md text-body-md text-on-surface w-full cursor-pointer" id="expiry" type="date" value={expiryDate} onChange={(event) => setExpiryDate(event.target.value)} />
       </div>
       </div>
       </div>
@@ -170,19 +182,19 @@ export function ItemEditorPantrypilotQ8m6({ actions }: ItemEditorPantrypilotQ8m6
       <label className="font-label-bold text-label-bold text-on-surface">Restock Priority</label>
       <div className="flex flex-col gap-xs">
       <label className="flex items-center gap-sm p-sm rounded-DEFAULT border border-outline-variant cursor-pointer hover:bg-surface-container-low transition-colors bg-surface-container-lowest">
-      <input className="text-primary focus:ring-primary h-4 w-4 border-outline-variant" name="priority" type="radio" value="high" />
+      <input checked={priority === "high"} className="text-primary focus:ring-primary h-4 w-4 border-outline-variant" name="priority" type="radio" value="high" onChange={(event) => setPriority(event.target.value)} />
       <span className="font-body-sm text-body-sm text-on-surface flex items-center gap-xs">
       <span className="w-2 h-2 rounded-full bg-error inline-block"></span> High
                                               </span>
       </label>
       <label className="flex items-center gap-sm p-sm rounded-DEFAULT border border-primary bg-primary-fixed/20 cursor-pointer transition-colors relative overflow-hidden">
-      <input checked={true} className="text-primary focus:ring-primary h-4 w-4 border-outline-variant" name="priority" type="radio" value="medium" />
+      <input checked={priority === "medium"} className="text-primary focus:ring-primary h-4 w-4 border-outline-variant" name="priority" type="radio" value="medium" onChange={(event) => setPriority(event.target.value)} />
       <span className="font-body-sm text-body-sm text-on-surface flex items-center gap-xs font-bold">
       <span className="w-2 h-2 rounded-full bg-surface-tint inline-block"></span> Medium
                                               </span>
       </label>
       <label className="flex items-center gap-sm p-sm rounded-DEFAULT border border-outline-variant cursor-pointer hover:bg-surface-container-low transition-colors bg-surface-container-lowest">
-      <input className="text-primary focus:ring-primary h-4 w-4 border-outline-variant" name="priority" type="radio" value="low" />
+      <input checked={priority === "low"} className="text-primary focus:ring-primary h-4 w-4 border-outline-variant" name="priority" type="radio" value="low" onChange={(event) => setPriority(event.target.value)} />
       <span className="font-body-sm text-body-sm text-on-surface flex items-center gap-xs">
       <span className="w-2 h-2 rounded-full bg-secondary-fixed-dim inline-block"></span> Low
                                               </span>
