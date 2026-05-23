@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Item Editor - PantryPilot</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#9dd3aa",
+                        "primary-fixed-dim": "#9dd3aa",
+                        "on-secondary-fixed-variant": "#414750",
+                        "background": "#f8faf5",
+                        "secondary-fixed-dim": "#c1c7d2",
+                        "surface-container-highest": "#e1e3de",
+                        "surface-tint": "#376847",
+                        "on-surface": "#191c19",
+                        "surface-bright": "#f8faf5",
+                        "inverse-surface": "#2e312e",
+                        "primary": "#316342",
+                        "surface-container": "#edeee9",
+                        "on-tertiary-fixed": "#380b16",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#1e5031",
+                        "primary-container": "#4a7c59",
+                        "secondary-fixed": "#dde3ee",
+                        "tertiary-fixed-dim": "#ffb2bc",
+                        "on-primary-fixed": "#00210e",
+                        "on-surface-variant": "#414942",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#dde3ee",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#e7e9e4",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#6d363f",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#834751",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#ffd9dd",
+                        "secondary": "#595f68",
+                        "surface-dim": "#d9dbd6",
+                        "tertiary-container": "#9f5f69",
+                        "outline-variant": "#c1c9bf",
+                        "surface-variant": "#e1e3de",
+                        "on-tertiary-container": "#fff5f5",
+                        "outline": "#717971",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed": "#161c24",
+                        "surface": "#f8faf5",
+                        "inverse-on-surface": "#f0f1ec",
+                        "on-secondary-container": "#5f656e",
+                        "on-primary-container": "#e1ffe5",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#f3f4ef",
+                        "on-background": "#191c19",
+                        "primary-fixed": "#b9efc5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "margin-mobile": "16px",
+                        "xs": "4px",
+                        "margin-desktop": "24px",
+                        "xl": "32px",
+                        "md": "16px",
+                        "sm": "8px",
+                        "base": "4px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "headline-md": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "headline-lg": ["Inter", "sans-serif"],
+                        "mono-data": ["Inter", "monospace"],
+                        "label-bold": ["Inter", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "mono-data": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "label-bold": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface antialiased overflow-hidden flex h-screen w-full">
+<!-- SideNavBar (Shared Component) -->
+<nav class="hidden md:flex fixed left-0 top-0 h-full w-64 flex-col p-md gap-sm bg-surface-container-low border-r border-outline-variant z-20">
+<!-- Brand Header -->
+<div class="px-md py-lg mb-sm">
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight">PantryPilot</h1>
+<p class="font-body-sm text-body-sm text-secondary">Management</p>
+</div>
+<!-- Navigation Links -->
+<ul class="flex flex-col gap-xs flex-1">
+<!-- Active Tab: Pantry (Context: Item Editor belongs to Pantry) -->
+<li>
+<a class="flex items-center gap-md px-md py-sm bg-primary-container text-on-primary-container font-bold rounded-xl transition-all scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span class="font-body-md text-body-md">Pantry</span>
+</a>
+</li>
+<!-- Inactive Tabs -->
+<li>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-highest rounded-xl transition-all hover:scale-[0.98] active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-body-md text-body-md">Insights</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-highest rounded-xl transition-all hover:scale-[0.98] active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+</li>
+</ul>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col md:ml-64 relative h-full overflow-hidden">
+<!-- TopAppBar (Shared Component) -->
+<header class="bg-surface flex items-center justify-between px-margin-desktop w-full h-16 border-b border-outline-variant z-10 shrink-0">
+<div class="flex items-center gap-md">
+<button class="md:hidden flex items-center justify-center p-xs rounded-full hover:bg-surface-container-low text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="font-headline-md text-headline-md text-primary font-bold">
+                    PantryPilot Q8M6
+                </div>
+</div>
+<div class="flex items-center gap-md">
+<!-- Trailing Primary Action (from JSON) -->
+<button class="hidden md:flex items-center gap-xs px-md h-8 bg-primary text-on-primary rounded-DEFAULT hover:bg-primary-container hover:text-on-primary-container transition-colors font-body-sm text-body-sm font-bold">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                    Add Item
+                </button>
+</div>
+</header>
+<!-- Scrollable Canvas -->
+<main class="flex-1 overflow-y-auto p-margin-mobile md:p-margin-desktop pb-[120px]">
+<div class="max-w-[800px] mx-auto w-full flex flex-col gap-lg">
+<!-- Page Header & Navigation Context -->
+<div class="flex items-center gap-sm text-secondary font-body-sm text-body-sm">
+<a class="hover:text-primary transition-colors flex items-center gap-xs" href="#">
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+                        Back to Pantry
+                    </a>
+</div>
+<div class="flex flex-col gap-xs">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Edit Item</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Update inventory details for this specific product.</p>
+</div>
+<!-- Unsaved Changes Banner -->
+<div class="bg-surface-container border border-outline-variant rounded-lg p-md flex items-center justify-between shadow-sm" role="alert">
+<div class="flex items-center gap-md text-on-surface-variant">
+<span class="material-symbols-outlined text-outline">error</span>
+<span class="font-body-sm text-body-sm">You have unsaved changes. Remember to save before leaving.</span>
+</div>
+</div>
+<!-- Bento Grid Layout for Form -->
+<form class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start">
+<!-- Left Column: Core Details -->
+<div class="md:col-span-8 flex flex-col gap-gutter">
+<!-- Card: Basic Information -->
+<div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-lg flex flex-col gap-md shadow-sm">
+<h3 class="font-headline-md text-headline-md border-b border-surface-variant pb-sm mb-xs">Basic Information</h3>
+<!-- Field: Item Name -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-bold text-label-bold text-on-surface" for="item-name">Item Name <span class="text-error">*</span></label>
+<input aria-describedby="item-name-error" aria-invalid="true" class="h-10 px-md rounded-DEFAULT border border-error bg-surface-container-lowest focus:border-error focus:ring-1 focus:ring-error outline-none transition-colors font-body-md text-body-md text-on-surface w-full" id="item-name" type="text" value="Organic Black Beans"/>
+<!-- Validation Message Inline -->
+<p class="font-body-sm text-body-sm text-error mt-xs flex items-center gap-[4px]" id="item-name-error">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+                                    Item Name cannot contain special characters.
+                                </p>
+</div>
+<!-- Field: Category -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-bold text-label-bold text-on-surface" for="category">Category</label>
+<div class="relative w-full">
+<select class="appearance-none h-10 px-md pr-xl rounded-DEFAULT border border-outline-variant bg-surface-container-lowest focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors font-body-md text-body-md text-on-surface w-full cursor-pointer" id="category">
+<option value="canned">Canned Goods</option>
+<option value="dry">Dry Goods &amp; Pasta</option>
+<option value="baking">Baking Supplies</option>
+<option value="spices">Spices &amp; Seasonings</option>
+</select>
+<span class="material-symbols-outlined absolute right-md top-1/2 -translate-y-1/2 pointer-events-none text-secondary">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Card: Inventory Metrics -->
+<div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-lg flex flex-col gap-md shadow-sm">
+<h3 class="font-headline-md text-headline-md border-b border-surface-variant pb-sm mb-xs">Inventory Status</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-md">
+<!-- Field: Quantity Toggle (Specialized Component) -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-bold text-label-bold text-on-surface">Current Quantity</label>
+<div class="flex items-center gap-xs">
+<div class="flex items-center border border-outline-variant rounded-DEFAULT overflow-hidden bg-surface-container-lowest h-10">
+<button class="w-10 h-full flex items-center justify-center hover:bg-surface-container-low text-on-surface-variant transition-colors border-r border-outline-variant" type="button">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<input class="w-12 h-full text-center border-none focus:ring-0 font-mono-data text-mono-data bg-transparent text-on-surface p-0" type="text" value="4"/>
+<button class="w-10 h-full flex items-center justify-center hover:bg-surface-container-low text-on-surface-variant transition-colors border-l border-outline-variant" type="button">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+<div class="relative w-[100px]">
+<select class="appearance-none h-10 px-sm pr-lg rounded-DEFAULT border border-outline-variant bg-surface-container-lowest focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors font-body-md text-body-md text-on-surface w-full cursor-pointer">
+<option value="cans">Cans</option>
+<option value="boxes">Boxes</option>
+<option value="lbs">lbs</option>
+<option value="items">Items</option>
+</select>
+<span class="material-symbols-outlined absolute right-sm top-1/2 -translate-y-1/2 pointer-events-none text-secondary text-[18px]">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Field: Expiry Date -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-bold text-label-bold text-on-surface" for="expiry">Expiry Date</label>
+<div class="relative w-full">
+<input class="appearance-none h-10 px-md rounded-DEFAULT border border-outline-variant bg-surface-container-lowest focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors font-body-md text-body-md text-on-surface w-full cursor-pointer" id="expiry" type="date" value="2025-08-14"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Meta & Actions -->
+<div class="md:col-span-4 flex flex-col gap-gutter">
+<!-- Card: Classification -->
+<div class="bg-surface-container-lowest border border-surface-variant rounded-xl p-lg flex flex-col gap-md shadow-sm">
+<h3 class="font-headline-md text-headline-md border-b border-surface-variant pb-sm mb-xs">Classification</h3>
+<!-- Field: Priority -->
+<div class="flex flex-col gap-sm">
+<label class="font-label-bold text-label-bold text-on-surface">Restock Priority</label>
+<div class="flex flex-col gap-xs">
+<label class="flex items-center gap-sm p-sm rounded-DEFAULT border border-outline-variant cursor-pointer hover:bg-surface-container-low transition-colors bg-surface-container-lowest">
+<input class="text-primary focus:ring-primary h-4 w-4 border-outline-variant" name="priority" type="radio" value="high"/>
+<span class="font-body-sm text-body-sm text-on-surface flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-error inline-block"></span> High
+                                        </span>
+</label>
+<label class="flex items-center gap-sm p-sm rounded-DEFAULT border border-primary bg-primary-fixed/20 cursor-pointer transition-colors relative overflow-hidden">
+<input checked="" class="text-primary focus:ring-primary h-4 w-4 border-outline-variant" name="priority" type="radio" value="medium"/>
+<span class="font-body-sm text-body-sm text-on-surface flex items-center gap-xs font-bold">
+<span class="w-2 h-2 rounded-full bg-surface-tint inline-block"></span> Medium
+                                        </span>
+</label>
+<label class="flex items-center gap-sm p-sm rounded-DEFAULT border border-outline-variant cursor-pointer hover:bg-surface-container-low transition-colors bg-surface-container-lowest">
+<input class="text-primary focus:ring-primary h-4 w-4 border-outline-variant" name="priority" type="radio" value="low"/>
+<span class="font-body-sm text-body-sm text-on-surface flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed-dim inline-block"></span> Low
+                                        </span>
+</label>
+</div>
+</div>
+</div>
+</div>
+</form>
+</div>
+</main>
+<!-- Fixed Bottom Action Bar -->
+<div class="absolute bottom-0 left-0 w-full bg-surface border-t border-outline-variant p-md flex items-center justify-end gap-md z-10 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+<button class="h-8 px-md rounded-DEFAULT border border-outline bg-transparent text-secondary font-body-sm text-body-sm hover:bg-surface-container-low transition-colors" type="button">
+                Cancel
+            </button>
+<button class="h-8 px-lg rounded-DEFAULT bg-primary text-on-primary font-body-sm text-body-sm font-bold hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm" type="submit">
+                Save Changes
+            </button>
+</div>
+</div>
+</body></html>

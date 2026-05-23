@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-background dark:bg-background" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Settings and Preferences - PantryPilot Q8M6</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#9dd3aa",
+                        "primary-fixed-dim": "#9dd3aa",
+                        "on-secondary-fixed-variant": "#414750",
+                        "background": "#f8faf5",
+                        "secondary-fixed-dim": "#c1c7d2",
+                        "surface-container-highest": "#e1e3de",
+                        "surface-tint": "#376847",
+                        "on-surface": "#191c19",
+                        "surface-bright": "#f8faf5",
+                        "inverse-surface": "#2e312e",
+                        "primary": "#316342",
+                        "surface-container": "#edeee9",
+                        "on-tertiary-fixed": "#380b16",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#1e5031",
+                        "primary-container": "#4a7c59",
+                        "secondary-fixed": "#dde3ee",
+                        "tertiary-fixed-dim": "#ffb2bc",
+                        "on-primary-fixed": "#00210e",
+                        "on-surface-variant": "#414942",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#dde3ee",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#e7e9e4",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#6d363f",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#834751",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#ffd9dd",
+                        "secondary": "#595f68",
+                        "surface-dim": "#d9dbd6",
+                        "tertiary-container": "#9f5f69",
+                        "outline-variant": "#c1c9bf",
+                        "surface-variant": "#e1e3de",
+                        "on-tertiary-container": "#fff5f5",
+                        "outline": "#717971",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed": "#161c24",
+                        "surface": "#f8faf5",
+                        "inverse-on-surface": "#f0f1ec",
+                        "on-secondary-container": "#5f656e",
+                        "on-primary-container": "#e1ffe5",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#f3f4ef",
+                        "on-background": "#191c19",
+                        "primary-fixed": "#b9efc5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "margin-mobile": "16px",
+                        "xs": "4px",
+                        "margin-desktop": "24px",
+                        "xl": "32px",
+                        "md": "16px",
+                        "sm": "8px",
+                        "base": "4px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "mono-data": ["Inter"],
+                        "label-bold": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "mono-data": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "label-bold": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="h-full flex text-on-surface bg-background font-body-md overflow-hidden">
+<!-- SideNavBar (Web/Tablet) -->
+<nav class="hidden md:flex flex-col bg-surface-container-low border-r border-outline-variant h-full w-64 p-md gap-sm flex-shrink-0 z-20">
+<div class="mb-lg px-xs">
+<h1 class="font-headline-md text-headline-md text-primary">PantryPilot</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Management</p>
+</div>
+<div class="flex flex-col gap-xs flex-1">
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-highest rounded-xl transition-all hover:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="inventory_2">inventory_2</span>
+<span class="font-body-md text-body-md font-medium">Pantry</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-highest rounded-xl transition-all hover:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="analytics">analytics</span>
+<span class="font-body-md text-body-md font-medium">Insights</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm bg-primary-container text-on-primary-container rounded-xl transition-all hover:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="settings" data-weight="fill" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="font-body-md text-body-md font-bold">Settings</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col min-w-0 h-full overflow-hidden relative">
+<!-- TopAppBar (Mobile/Web) -->
+<header class="flex items-center justify-between px-margin-desktop w-full h-16 bg-surface border-b border-outline-variant flex-shrink-0 z-10">
+<div class="flex items-center gap-md">
+<button class="md:hidden text-on-surface-variant hover:bg-surface-container-low p-sm rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<div class="md:hidden">
+<h1 class="font-headline-md text-headline-md text-primary">PantryPilot</h1>
+</div>
+<h2 class="hidden md:block font-headline-md text-headline-md text-on-surface">Preferences</h2>
+</div>
+<div class="flex items-center gap-md">
+<div class="relative hidden sm:flex items-center">
+<span class="material-symbols-outlined absolute left-sm text-on-surface-variant text-sm pointer-events-none" data-icon="search">search</span>
+<input class="w-64 pl-xl pr-sm py-xs bg-surface-container-low border border-outline-variant rounded-full font-body-sm text-body-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" placeholder="Search settings..." type="text"/>
+</div>
+<button class="md:hidden text-on-surface-variant hover:bg-surface-container-low p-sm rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="px-md py-sm bg-primary text-on-primary font-label-bold text-label-bold rounded-lg shadow-sm hover:bg-surface-tint transition-colors active:opacity-80 flex items-center gap-xs">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                    Add Item
+                </button>
+</div>
+</header>
+<!-- Scrollable Canvas -->
+<main class="flex-1 overflow-y-auto p-margin-desktop bg-background">
+<div class="max-w-4xl mx-auto space-y-xl pb-24">
+<!-- Page Header -->
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-xs">Workflow Preferences</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Customize your pantry management experience and notification behaviors.</p>
+</div>
+<!-- Bento Grid Layout for Settings -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-md">
+<!-- Display & View Settings (Span 8) -->
+<section class="lg:col-span-8 bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-md flex items-center gap-sm border-b border-outline-variant pb-sm">
+<span class="material-symbols-outlined text-primary" data-icon="visibility">visibility</span>
+                            Appearance
+                        </h3>
+<div class="space-y-lg">
+<!-- Default View -->
+<div>
+<label class="block font-label-bold text-label-bold text-on-surface-variant mb-sm uppercase tracking-wider">Default View</label>
+<div class="flex gap-md">
+<label class="flex-1 cursor-pointer">
+<input checked="" class="peer sr-only" name="default_view" type="radio" value="list"/>
+<div class="p-md border border-outline-variant rounded-lg peer-checked:border-primary peer-checked:bg-primary-container/10 transition-colors flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant peer-checked:text-primary" data-icon="view_list">view_list</span>
+<span class="font-body-md text-body-md font-medium">List View</span>
+</div>
+</label>
+<label class="flex-1 cursor-pointer">
+<input class="peer sr-only" name="default_view" type="radio" value="grid"/>
+<div class="p-md border border-outline-variant rounded-lg peer-checked:border-primary peer-checked:bg-primary-container/10 transition-colors flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant peer-checked:text-primary" data-icon="grid_view">grid_view</span>
+<span class="font-body-md text-body-md font-medium">Grid View</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Display Density -->
+<div>
+<label class="block font-label-bold text-label-bold text-on-surface-variant mb-sm uppercase tracking-wider">Display Density</label>
+<div class="bg-surface-container-low rounded-lg border border-outline-variant p-sm flex gap-sm relative">
+<!-- Decorative indicator for active state -->
+<div class="absolute left-sm top-sm bottom-sm w-[calc(50%-6px)] bg-surface-container-lowest border border-outline shadow-sm rounded-md transition-transform duration-300 ease-in-out" id="density-indicator"></div>
+<button class="flex-1 py-sm px-md text-center z-10 relative font-body-sm text-body-sm font-medium text-on-surface transition-colors" onclick="document.getElementById('density-indicator').style.transform = 'translateX(0)'">
+                                        Compact
+                                    </button>
+<button class="flex-1 py-sm px-md text-center z-10 relative font-body-sm text-body-sm font-medium text-on-surface-variant hover:text-on-surface transition-colors" onclick="document.getElementById('density-indicator').style.transform = 'translateX(calc(100% + 8px))'">
+                                        Comfortable
+                                    </button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-sm">Compact density shows more items per screen. Recommended for large pantries.</p>
+</div>
+</div>
+</section>
+<!-- Notifications (Span 4) -->
+<section class="lg:col-span-4 bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm flex flex-col">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-md flex items-center gap-sm border-b border-outline-variant pb-sm">
+<span class="material-symbols-outlined text-primary" data-icon="notifications_active">notifications_active</span>
+                            Alerts
+                        </h3>
+<div class="flex-1 flex flex-col justify-between">
+<div class="space-y-md">
+<label class="block font-label-bold text-label-bold text-on-surface-variant mb-xs uppercase tracking-wider">Expiry Threshold</label>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-sm">Notify me when items expire in:</p>
+<div class="relative">
+<select class="w-full appearance-none bg-surface border border-outline-variant rounded-lg py-sm pl-md pr-xl font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors cursor-pointer">
+<option value="3">3 Days</option>
+<option selected="" value="7">7 Days</option>
+<option value="14">14 Days</option>
+<option value="30">30 Days</option>
+</select>
+<span class="material-symbols-outlined absolute right-sm top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none" data-icon="expand_more">expand_more</span>
+</div>
+<div class="flex items-center justify-between pt-md border-t border-surface-container-high mt-md">
+<span class="font-body-md text-body-md font-medium">Low Stock Alerts</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-surface after:border-outline-variant after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</div>
+</section>
+<!-- Saved Filters (Span 12) -->
+<section class="lg:col-span-12 bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm">
+<div class="flex items-center justify-between mb-md border-b border-outline-variant pb-sm">
+<h3 class="font-headline-md text-headline-md text-on-surface flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="filter_list">filter_list</span>
+                                Saved Filters
+                            </h3>
+<button class="text-primary font-label-bold text-label-bold hover:underline">Manage All</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-md">
+<!-- Filter Card 1 -->
+<div class="border border-outline-variant rounded-lg p-sm flex items-center justify-between hover:bg-surface-container-low transition-colors group cursor-pointer">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-medium text-on-surface">Expiring Soon</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">&lt; 7 days left</span>
+</div>
+<button class="text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity hover:text-error p-xs rounded-full hover:bg-surface-container-highest">
+<span class="material-symbols-outlined text-sm" data-icon="delete">delete</span>
+</button>
+</div>
+<!-- Filter Card 2 -->
+<div class="border border-outline-variant rounded-lg p-sm flex items-center justify-between hover:bg-surface-container-low transition-colors group cursor-pointer">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-medium text-on-surface">Baking Supplies</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Category: Baking</span>
+</div>
+<button class="text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity hover:text-error p-xs rounded-full hover:bg-surface-container-highest">
+<span class="material-symbols-outlined text-sm" data-icon="delete">delete</span>
+</button>
+</div>
+<!-- Add New Filter -->
+<div class="border border-dashed border-outline-variant rounded-lg p-sm flex items-center justify-center hover:bg-surface-container-low hover:border-primary transition-colors cursor-pointer text-on-surface-variant hover:text-primary gap-sm">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+<span class="font-body-sm text-body-sm font-medium">Create Filter</span>
+</div>
+</div>
+</section>
+</div>
+<!-- Action Bar -->
+<div class="flex items-center justify-between pt-lg border-t border-outline-variant mt-xl">
+<button class="font-label-bold text-label-bold text-error hover:underline px-md py-sm transition-colors rounded-lg hover:bg-error-container/20">
+                        Reset to Defaults
+                    </button>
+<div class="flex gap-md">
+<button class="px-lg py-sm border border-outline-variant text-secondary font-label-bold text-label-bold rounded-lg hover:bg-surface-container-low transition-colors">
+                            Cancel
+                        </button>
+<button class="px-lg py-sm bg-primary text-on-primary font-label-bold text-label-bold rounded-lg shadow-sm hover:bg-surface-tint transition-colors active:scale-95 flex items-center gap-sm" id="save-btn">
+                            Save Preferences
+                        </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Toast Notification (Hidden by default) -->
+<div class="absolute bottom-margin-desktop left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface px-lg py-sm rounded-lg shadow-md flex items-center gap-sm font-body-md text-body-md transition-all duration-300 opacity-0 pointer-events-none translate-y-4 z-50" id="toast">
+<span class="material-symbols-outlined text-inverse-primary text-sm" data-icon="check_circle">check_circle</span>
+            Preferences saved successfully
+        </div>
+</div>
+<!-- BottomNavBar (Mobile Only - Replaces SideNav) -->
+<nav class="md:hidden flex items-center justify-around w-full h-16 bg-surface-container-low border-t border-outline-variant pb-safe flex-shrink-0 z-20">
+<a class="flex flex-col items-center justify-center gap-1 w-full h-full text-on-surface-variant hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-label-bold text-label-bold text-[10px]">Pantry</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 w-full h-full text-on-surface-variant hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-bold text-label-bold text-[10px]">Insights</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 w-full h-full text-primary relative" href="#">
+<div class="absolute inset-x-4 top-1 bottom-1 bg-primary-container rounded-xl -z-10"></div>
+<span class="material-symbols-outlined" data-icon="settings" data-weight="fill" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="font-label-bold text-label-bold text-[10px] text-on-primary-container">Settings</span>
+</a>
+</nav>
+<script>
+        // Simple toast logic for the Save button
+        document.getElementById('save-btn').addEventListener('click', function() {
+            const toast = document.getElementById('toast');
+            toast.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+            toast.classList.add('opacity-100', 'translate-y-0');
+            
+            // Add a brief loading state to button
+            const originalText = this.innerHTML;
+            this.innerHTML = `<span class="material-symbols-outlined animate-spin text-sm" data-icon="sync">sync</span> Saving...`;
+            
+            setTimeout(() => {
+                this.innerHTML = originalText;
+                setTimeout(() => {
+                    toast.classList.remove('opacity-100', 'translate-y-0');
+                    toast.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+                }, 3000);
+            }, 500);
+        });
+    </script>
+</body></html>

@@ -1,0 +1,46 @@
+[
+  {
+    "screenId": "685e2582bc584866b697505fe84f4382",
+    "title": "Empty and Error Recovery - PantryPilot Q8M6",
+    "htmlFile": "685e2582bc584866b697505fe84f4382.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzFhYTAwODNjMTQ0OTQxMmZhYjExMzE0ZGViYzBiMDRkEgsSBxCN19Wi9xcYAZIBJAoKcHJvamVjdF9pZBIWQhQxNTMzNjY0MTMxNDMxNjgwOTI4OA&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/pantrypilot-q8m6-5b5e7b2e/stitch/685e2582bc584866b697505fe84f4382.html",
+    "surfaceIds": [
+      "SURF_EMPTY_AND_ERROR_RECOVERY"
+    ]
+  },
+  {
+    "screenId": "67fcff8a213249ee8a3f3153a099c984",
+    "title": "Item Operations - PantryPilot Q8M6",
+    "htmlFile": "67fcff8a213249ee8a3f3153a099c984.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzRmNGEzMTMyMTI3MDRkODZiZjE4OWYzYWFlN2U4YjcwEgsSBxCN19Wi9xcYAZIBJAoKcHJvamVjdF9pZBIWQhQxNTMzNjY0MTMxNDMxNjgwOTI4OA&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/pantrypilot-q8m6-5b5e7b2e/stitch/67fcff8a213249ee8a3f3153a099c984.html",
+    "surfaceIds": [
+      "SURF_ITEM_OPERATIONS"
+    ]
+  },
+  {
+    "screenId": "d252cf61308342a59c99065d9b5d045e",
+    "title": "Item Editor - PantryPilot Q8M6",
+    "htmlFile": "d252cf61308342a59c99065d9b5d045e.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzhhMDQxOWY3ZGUwNDQ2MzZiYWRhMDgwZWY4MjUwOTE3EgsSBxCN19Wi9xcYAZIBJAoKcHJvamVjdF9pZBIWQhQxNTMzNjY0MTMxNDMxNjgwOTI4OA&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/pantrypilot-q8m6-5b5e7b2e/stitch/d252cf61308342a59c99065d9b5d045e.html",
+    "surfaceIds": [
+      "SURF_ITEM_EDITOR"
+    ]
+  },
+  {
+    "screenId": "aeede69111e441aa8353ff45865b48ca",
+    "title": "Settings and Preferences - PantryPilot Q8M6",
+    "htmlFile": "aeede69111e441aa8353ff45865b48ca.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sX2IyNTAzZGZlMTg1NjQyNzNhODEzODE2MWVkMDhiNzQ4EgsSBxCN19Wi9xcYAZIBJAoKcHJvamVjdF9pZBIWQhQxNTMzNjY0MTMxNDMxNjgwOTI4OA&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/pantrypilot-q8m6-5b5e7b2e/stitch/aeede69111e441aa8353ff45865b48ca.html",
+    "surfaceIds": [
+      "SURF_SETTINGS_AND_PREFERENCES"
+    ]
+  }
+]

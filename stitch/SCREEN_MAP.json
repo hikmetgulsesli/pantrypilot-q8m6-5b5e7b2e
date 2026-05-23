@@ -1,0 +1,38 @@
+[
+  {
+    "screenId": "685e2582bc584866b697505fe84f4382",
+    "name": "Empty and Error Recovery - PantryPilot Q8M6",
+    "type": "error",
+    "description": "Empty and Error Recovery - PantryPilot Q8M6 screen",
+    "surfaceIds": [
+      "SURF_EMPTY_AND_ERROR_RECOVERY"
+    ]
+  },
+  {
+    "screenId": "67fcff8a213249ee8a3f3153a099c984",
+    "name": "Item Operations - PantryPilot Q8M6",
+    "type": "app-screen",
+    "description": "Item Operations - PantryPilot Q8M6 screen",
+    "surfaceIds": [
+      "SURF_ITEM_OPERATIONS"
+    ]
+  },
+  {
+    "screenId": "d252cf61308342a59c99065d9b5d045e",
+    "name": "Item Editor - PantryPilot Q8M6",
+    "type": "form",
+    "description": "Item Editor - PantryPilot Q8M6 screen",
+    "surfaceIds": [
+      "SURF_ITEM_EDITOR"
+    ]
+  },
+  {
+    "screenId": "aeede69111e441aa8353ff45865b48ca",
+    "name": "Settings and Preferences - PantryPilot Q8M6",
+    "type": "settings",
+    "description": "Settings and Preferences - PantryPilot Q8M6 screen",
+    "surfaceIds": [
+      "SURF_SETTINGS_AND_PREFERENCES"
+    ]
+  }
+]

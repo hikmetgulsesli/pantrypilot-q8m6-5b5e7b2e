@@ -1,0 +1,2230 @@
+{
+  "generatedAt": "2026-05-23T23:10:44.291Z",
+  "screenCount": 4,
+  "screens": {
+    "67fcff8a213249ee8a3f3153a099c984": {
+      "screenId": "67fcff8a213249ee8a3f3153a099c984",
+      "materialSymbolsRequired": true,
+      "sections": [
+        {
+          "tag": "nav",
+          "layout": "absolute",
+          "classes": [
+            "hidden",
+            "md:flex",
+            "bg-surface-container-low",
+            "dark:bg-inverse-surface",
+            "border-r",
+            "border-outline-variant",
+            "dark:border-outline",
+            "fixed",
+            "left-0",
+            "top-0"
+          ],
+          "childCount": 2
+        },
+        {
+          "tag": "header",
+          "layout": "flex-row",
+          "classes": [
+            "bg-surface",
+            "dark:bg-surface",
+            "border-b",
+            "border-outline-variant",
+            "dark:border-outline",
+            "flex",
+            "items-center",
+            "justify-between",
+            "px-margin-desktop",
+            "w-full"
+          ],
+          "childCount": 3
+        },
+        {
+          "tag": "main",
+          "layout": "flex-row",
+          "classes": [
+            "flex-1",
+            "overflow-y-auto",
+            "p-margin-mobile",
+            "md:p-margin-desktop",
+            "bg-surface-bright",
+            "flex",
+            "gap-lg"
+          ],
+          "childCount": 57
+        }
+      ],
+      "buttons": [
+        {
+          "kind": "button",
+          "label": "menu",
+          "classes": [
+            "text-on-surface-variant",
+            "p-sm",
+            "rounded-full",
+            "hover:bg-surface-container-low",
+            "transition-colors"
+          ],
+          "icon": "menu",
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "sync",
+          "classes": [
+            "flex",
+            "items-center",
+            "gap-xs",
+            "px-md",
+            "py-sm",
+            "border",
+            "border-outline-variant",
+            "rounded-full",
+            "text-secondary",
+            "font-body-sm",
+            "font-bold",
+            "hover:bg-surface-container-low",
+            "transition-colors",
+            "h-8"
+          ],
+          "icon": "sync",
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Item",
+          "classes": [
+            "flex",
+            "items-center",
+            "gap-xs",
+            "px-md",
+            "py-sm",
+            "bg-primary",
+            "text-on-primary",
+            "rounded-full",
+            "font-body-sm",
+            "font-bold",
+            "hover:opacity-90",
+            "active:opacity-80",
+            "transition-opacity",
+            "h-8"
+          ],
+          "icon": "add",
+          "action": "create",
+          "expectedBehavior": "open create flow or add a new item/state"
+        },
+        {
+          "kind": "button",
+          "label": "All Items",
+          "classes": [
+            "px-md",
+            "py-[6px]",
+            "bg-secondary-container",
+            "text-on-secondary-container",
+            "rounded-full",
+            "font-body-sm",
+            "font-bold",
+            "border",
+            "border-transparent",
+            "whitespace-nowrap"
+          ],
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Produce",
+          "classes": [
+            "px-md",
+            "py-[6px]",
+            "bg-surface",
+            "text-on-surface-variant",
+            "border",
+            "border-outline-variant",
+            "rounded-full",
+            "font-body-sm",
+            "hover:bg-surface-container-low",
+            "transition-colors",
+            "whitespace-nowrap"
+          ],
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Dairy",
+          "classes": [
+            "px-md",
+            "py-[6px]",
+            "bg-surface",
+            "text-on-surface-variant",
+            "border",
+            "border-outline-variant",
+            "rounded-full",
+            "font-body-sm",
+            "hover:bg-surface-container-low",
+            "transition-colors",
+            "whitespace-nowrap"
+          ],
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Canned Goods",
+          "classes": [
+            "px-md",
+            "py-[6px]",
+            "bg-surface",
+            "text-on-surface-variant",
+            "border",
+            "border-outline-variant",
+            "rounded-full",
+            "font-body-sm",
+            "hover:bg-surface-container-low",
+            "transition-colors",
+            "whitespace-nowrap"
+          ],
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Expiring",
+          "classes": [
+            "px-md",
+            "py-[6px]",
+            "bg-surface",
+            "text-on-surface-variant",
+            "border",
+            "border-outline-variant",
+            "rounded-full",
+            "font-body-sm",
+            "hover:bg-surface-container-low",
+            "transition-colors",
+            "whitespace-nowrap",
+            "text-error",
+            "border-error/30",
+            "hover:bg-error/5"
+          ],
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "remove",
+          "classes": [
+            "w-6",
+            "h-6",
+            "rounded",
+            "flex",
+            "items-center",
+            "justify-center",
+            "border",
+            "border-outline-variant",
+            "hover:bg-surface-container",
+            "text-secondary"
+          ],
+          "icon": "remove",
+          "action": "destructive",
+          "expectedBehavior": "perform destructive action with visible feedback or confirmation"
+        },
+        {
+          "kind": "button",
+          "label": "add",
+          "classes": [
+            "w-6",
+            "h-6",
+            "rounded",
+            "flex",
+            "items-center",
+            "justify-center",
+            "border",
+            "border-outline-variant",
+            "hover:bg-surface-container",
+            "text-secondary"
+          ],
+          "icon": "add",
+          "action": "create",
+          "expectedBehavior": "open create flow or add a new item/state"
+        },
+        {
+          "kind": "button",
+          "label": "close",
+          "classes": [
+            "absolute",
+            "top-sm",
+            "right-sm",
+            "w-8",
+            "h-8",
+            "rounded-full",
+            "bg-surface/50",
+            "backdrop-blur-sm",
+            "flex",
+            "items-center",
+            "justify-center",
+            "text-on-surface",
+            "hover:bg-surface",
+            "transition-colors"
+          ],
+          "icon": "close",
+          "action": "dismiss",
+          "expectedBehavior": "close dialog/panel or return to previous state"
+        },
+        {
+          "kind": "button",
+          "label": "Edit",
+          "classes": [
+            "flex-1",
+            "py-sm",
+            "border",
+            "border-outline-variant",
+            "rounded-lg",
+            "font-body-sm",
+            "font-bold",
+            "text-secondary",
+            "hover:bg-surface-container-low",
+            "transition-colors"
+          ],
+          "icon": null,
+          "action": "edit",
+          "expectedBehavior": "open edit flow or update selected item/state"
+        },
+        {
+          "kind": "button",
+          "label": "Reorder",
+          "classes": [
+            "flex-1",
+            "py-sm",
+            "bg-primary",
+            "text-on-primary",
+            "rounded-lg",
+            "font-body-sm",
+            "font-bold",
+            "hover:opacity-90",
+            "transition-opacity"
+          ],
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "PantryPilot Management",
+          "classes": [],
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        }
+      ],
+      "inputs": [
+        {
+          "kind": "input",
+          "type": "text",
+          "label": "Search inventory...",
+          "placeholder": "Search inventory...",
+          "name": "",
+          "classes": [
+            "w-full",
+            "bg-surface-container-low",
+            "border",
+            "border-outline-variant",
+            "rounded-full",
+            "py-sm",
+            "pl-xl",
+            "pr-md",
+            "font-body-md",
+            "text-body-md",
+            "focus:border-primary",
+            "focus:ring-1",
+            "focus:ring-primary",
+            "transition-colors",
+            "outline-none",
+            "text-on-surface",
+            "placeholder:text-on-surface-variant"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        }
+      ],
+      "navLinks": [
+        {
+          "kind": "link",
+          "label": "Pantry",
+          "href": "#",
+          "classes": [
+            "material-symbols-outlined"
+          ],
+          "icon": "inventory_2",
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Insights",
+          "href": "#",
+          "classes": [
+            "material-symbols-outlined"
+          ],
+          "icon": "analytics",
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "settings",
+          "href": "#",
+          "classes": [
+            "material-symbols-outlined"
+          ],
+          "icon": "settings",
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        }
+      ],
+      "cards": [],
+      "icons": [
+        "analytics",
+        "settings",
+        "menu",
+        "search",
+        "sync",
+        "add",
+        "event_busy",
+        "warning",
+        "remove",
+        "close",
+        "local_drink"
+      ],
+      "images": [],
+      "cssVars": {},
+      "colorPalette": {
+        "inverse-primary": "#9dd3aa",
+        "primary-fixed-dim": "#9dd3aa",
+        "on-secondary-fixed-variant": "#414750",
+        "background": "#f8faf5",
+        "secondary-fixed-dim": "#c1c7d2",
+        "surface-container-highest": "#e1e3de",
+        "surface-tint": "#376847",
+        "on-surface": "#191c19",
+        "surface-bright": "#f8faf5",
+        "inverse-surface": "#2e312e",
+        "primary": "#316342",
+        "surface-container": "#edeee9",
+        "on-tertiary-fixed": "#380b16",
+        "on-error": "#ffffff",
+        "on-primary-fixed-variant": "#1e5031",
+        "primary-container": "#4a7c59",
+        "secondary-fixed": "#dde3ee",
+        "tertiary-fixed-dim": "#ffb2bc",
+        "on-primary-fixed": "#00210e",
+        "on-surface-variant": "#414942",
+        "on-secondary": "#ffffff",
+        "secondary-container": "#dde3ee",
+        "on-primary": "#ffffff",
+        "surface-container-high": "#e7e9e4",
+        "error": "#ba1a1a",
+        "on-tertiary-fixed-variant": "#6d363f",
+        "surface-container-lowest": "#ffffff",
+        "tertiary": "#834751",
+        "on-tertiary": "#ffffff",
+        "tertiary-fixed": "#ffd9dd",
+        "secondary": "#595f68",
+        "surface-dim": "#d9dbd6",
+        "tertiary-container": "#9f5f69",
+        "outline-variant": "#c1c9bf",
+        "surface-variant": "#e1e3de",
+        "on-tertiary-container": "#fff5f5",
+        "outline": "#717971",
+        "error-container": "#ffdad6",
+        "on-secondary-fixed": "#161c24",
+        "surface": "#f8faf5",
+        "inverse-on-surface": "#f0f1ec",
+        "on-secondary-container": "#5f656e",
+        "on-primary-container": "#e1ffe5",
+        "on-error-container": "#93000a",
+        "surface-container-low": "#f3f4ef",
+        "on-background": "#191c19",
+        "primary-fixed": "#b9efc5"
+      },
+      "fonts": [
+        "Material Symbols Outlined",
+        "Inter"
+      ],
+      "layoutHints": {
+        "gridCols": 1,
+        "flexDirection": "col"
+      },
+      "behaviorContract": [
+        {
+          "kind": "link",
+          "label": "Pantry",
+          "icon": "inventory_2",
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Insights",
+          "icon": "analytics",
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "settings",
+          "icon": "settings",
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "button",
+          "label": "menu",
+          "icon": "menu",
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "sync",
+          "icon": "sync",
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Item",
+          "icon": "add",
+          "action": "create",
+          "expectedBehavior": "open create flow or add a new item/state"
+        },
+        {
+          "kind": "button",
+          "label": "All Items",
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Produce",
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Dairy",
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Canned Goods",
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Expiring",
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "remove",
+          "icon": "remove",
+          "action": "destructive",
+          "expectedBehavior": "perform destructive action with visible feedback or confirmation"
+        },
+        {
+          "kind": "button",
+          "label": "add",
+          "icon": "add",
+          "action": "create",
+          "expectedBehavior": "open create flow or add a new item/state"
+        },
+        {
+          "kind": "button",
+          "label": "close",
+          "icon": "close",
+          "action": "dismiss",
+          "expectedBehavior": "close dialog/panel or return to previous state"
+        },
+        {
+          "kind": "button",
+          "label": "Edit",
+          "icon": null,
+          "action": "edit",
+          "expectedBehavior": "open edit flow or update selected item/state"
+        },
+        {
+          "kind": "button",
+          "label": "Reorder",
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "PantryPilot Management",
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "input",
+          "label": "Search inventory...",
+          "type": "text",
+          "placeholder": "Search inventory...",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        }
+      ],
+      "tabBar": [
+        {
+          "kind": "button",
+          "label": "PantryPilot Management",
+          "icon": null,
+          "active": true
+        },
+        {
+          "kind": "link",
+          "label": "Pantry",
+          "icon": "inventory_2",
+          "route": "#",
+          "active": true
+        },
+        {
+          "kind": "link",
+          "label": "Insights",
+          "icon": "analytics",
+          "route": "#",
+          "active": true
+        },
+        {
+          "kind": "link",
+          "label": "settings",
+          "icon": "settings",
+          "route": "#",
+          "active": true
+        }
+      ],
+      "title": "Item Operations - PantryPilot Q8M6"
+    },
+    "685e2582bc584866b697505fe84f4382": {
+      "screenId": "685e2582bc584866b697505fe84f4382",
+      "materialSymbolsRequired": true,
+      "sections": [
+        {
+          "tag": "nav",
+          "layout": "flex-col",
+          "classes": [
+            "hidden",
+            "md:flex",
+            "flex-col",
+            "p-md",
+            "gap-sm",
+            "bg-surface-container-low",
+            "dark:bg-inverse-surface",
+            "border-r",
+            "border-outline-variant",
+            "dark:border-outline"
+          ],
+          "childCount": 2
+        },
+        {
+          "tag": "header",
+          "layout": "flex-row",
+          "classes": [
+            "flex",
+            "items-center",
+            "justify-between",
+            "px-margin-desktop",
+            "w-full",
+            "h-16",
+            "bg-surface",
+            "dark:bg-surface",
+            "border-b",
+            "border-outline-variant"
+          ],
+          "childCount": 4
+        },
+        {
+          "tag": "main",
+          "layout": "flex-row",
+          "classes": [
+            "flex-1",
+            "overflow-y-auto",
+            "p-margin-mobile",
+            "md:p-margin-desktop",
+            "bg-surface",
+            "flex",
+            "items-center",
+            "justify-center"
+          ],
+          "childCount": 9
+        }
+      ],
+      "buttons": [
+        {
+          "kind": "button",
+          "label": "Add Item",
+          "classes": [
+            "bg-primary",
+            "text-on-primary",
+            "font-body-sm",
+            "text-body-sm",
+            "font-bold",
+            "h-xl",
+            "px-md",
+            "rounded",
+            "hover:bg-primary-container",
+            "transition-colors",
+            "shadow-sm"
+          ],
+          "icon": null,
+          "action": "create",
+          "expectedBehavior": "open create flow or add a new item/state"
+        },
+        {
+          "kind": "button",
+          "label": "Retry Load",
+          "classes": [
+            "flex",
+            "items-center",
+            "justify-center",
+            "gap-xs",
+            "bg-primary",
+            "text-on-primary",
+            "font-body-sm",
+            "text-body-sm",
+            "font-bold",
+            "h-xl",
+            "px-md",
+            "rounded",
+            "hover:bg-primary-container",
+            "transition-colors",
+            "shadow-sm"
+          ],
+          "icon": "refresh",
+          "action": "retry",
+          "expectedBehavior": "retry the failed action and show loading/error feedback"
+        },
+        {
+          "kind": "button",
+          "label": "Create First Item",
+          "classes": [
+            "flex",
+            "items-center",
+            "justify-center",
+            "gap-xs",
+            "bg-surface-container-lowest",
+            "text-on-surface",
+            "font-body-sm",
+            "text-body-sm",
+            "font-bold",
+            "h-xl",
+            "px-md",
+            "rounded",
+            "border",
+            "border-outline-variant",
+            "hover:bg-surface-container-low",
+            "transition-colors"
+          ],
+          "icon": "add",
+          "action": "create",
+          "expectedBehavior": "open create flow or add a new item/state"
+        },
+        {
+          "kind": "button",
+          "label": "Clear All Filters",
+          "classes": [
+            "font-label-bold",
+            "text-label-bold",
+            "text-secondary",
+            "hover:text-on-surface",
+            "transition-colors",
+            "underline",
+            "decoration-secondary/30",
+            "underline-offset-4"
+          ],
+          "icon": null,
+          "action": "search",
+          "expectedBehavior": "filter/search visible results from input/query"
+        },
+        {
+          "kind": "button",
+          "label": "PantryPilot Management",
+          "classes": [],
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        }
+      ],
+      "inputs": [
+        {
+          "kind": "input",
+          "type": "text",
+          "label": "Search pantry...",
+          "placeholder": "Search pantry...",
+          "name": "",
+          "classes": [
+            "bg-transparent",
+            "border-none",
+            "focus:ring-0",
+            "text-body-md",
+            "font-body-md",
+            "w-full",
+            "outline-none",
+            "text-on-surface"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        }
+      ],
+      "navLinks": [
+        {
+          "kind": "link",
+          "label": "Pantry",
+          "href": "#",
+          "classes": [
+            "material-symbols-outlined"
+          ],
+          "icon": "inventory_2",
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Insights",
+          "href": "#",
+          "classes": [
+            "material-symbols-outlined"
+          ],
+          "icon": "analytics",
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "settings",
+          "href": "#",
+          "classes": [
+            "material-symbols-outlined"
+          ],
+          "icon": "settings",
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        }
+      ],
+      "cards": [],
+      "icons": [
+        "analytics",
+        "settings",
+        "search",
+        "kitchen",
+        "error",
+        "warning",
+        "lightbulb",
+        "refresh",
+        "add"
+      ],
+      "images": [],
+      "cssVars": {},
+      "colorPalette": {
+        "inverse-primary": "#9dd3aa",
+        "primary-fixed-dim": "#9dd3aa",
+        "on-secondary-fixed-variant": "#414750",
+        "background": "#f8faf5",
+        "secondary-fixed-dim": "#c1c7d2",
+        "surface-container-highest": "#e1e3de",
+        "surface-tint": "#376847",
+        "on-surface": "#191c19",
+        "surface-bright": "#f8faf5",
+        "inverse-surface": "#2e312e",
+        "primary": "#316342",
+        "surface-container": "#edeee9",
+        "on-tertiary-fixed": "#380b16",
+        "on-error": "#ffffff",
+        "on-primary-fixed-variant": "#1e5031",
+        "primary-container": "#4a7c59",
+        "secondary-fixed": "#dde3ee",
+        "tertiary-fixed-dim": "#ffb2bc",
+        "on-primary-fixed": "#00210e",
+        "on-surface-variant": "#414942",
+        "on-secondary": "#ffffff",
+        "secondary-container": "#dde3ee",
+        "on-primary": "#ffffff",
+        "surface-container-high": "#e7e9e4",
+        "error": "#ba1a1a",
+        "on-tertiary-fixed-variant": "#6d363f",
+        "surface-container-lowest": "#ffffff",
+        "tertiary": "#834751",
+        "on-tertiary": "#ffffff",
+        "tertiary-fixed": "#ffd9dd",
+        "secondary": "#595f68",
+        "surface-dim": "#d9dbd6",
+        "tertiary-container": "#9f5f69",
+        "outline-variant": "#c1c9bf",
+        "surface-variant": "#e1e3de",
+        "on-tertiary-container": "#fff5f5",
+        "outline": "#717971",
+        "error-container": "#ffdad6",
+        "on-secondary-fixed": "#161c24",
+        "surface": "#f8faf5",
+        "inverse-on-surface": "#f0f1ec",
+        "on-secondary-container": "#5f656e",
+        "on-primary-container": "#e1ffe5",
+        "on-error-container": "#93000a",
+        "surface-container-low": "#f3f4ef",
+        "on-background": "#191c19",
+        "primary-fixed": "#b9efc5"
+      },
+      "fonts": [
+        "Material Symbols Outlined",
+        "Inter"
+      ],
+      "layoutHints": {
+        "gridCols": 1,
+        "flexDirection": "col"
+      },
+      "behaviorContract": [
+        {
+          "kind": "link",
+          "label": "Pantry",
+          "icon": "inventory_2",
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Insights",
+          "icon": "analytics",
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "settings",
+          "icon": "settings",
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "button",
+          "label": "Add Item",
+          "icon": null,
+          "action": "create",
+          "expectedBehavior": "open create flow or add a new item/state"
+        },
+        {
+          "kind": "button",
+          "label": "Retry Load",
+          "icon": "refresh",
+          "action": "retry",
+          "expectedBehavior": "retry the failed action and show loading/error feedback"
+        },
+        {
+          "kind": "button",
+          "label": "Create First Item",
+          "icon": "add",
+          "action": "create",
+          "expectedBehavior": "open create flow or add a new item/state"
+        },
+        {
+          "kind": "button",
+          "label": "Clear All Filters",
+          "icon": null,
+          "action": "search",
+          "expectedBehavior": "filter/search visible results from input/query"
+        },
+        {
+          "kind": "button",
+          "label": "PantryPilot Management",
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "input",
+          "label": "Search pantry...",
+          "type": "text",
+          "placeholder": "Search pantry...",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        }
+      ],
+      "tabBar": [
+        {
+          "kind": "button",
+          "label": "PantryPilot Management",
+          "icon": null,
+          "active": true
+        },
+        {
+          "kind": "link",
+          "label": "Pantry",
+          "icon": "inventory_2",
+          "route": "#",
+          "active": true
+        },
+        {
+          "kind": "link",
+          "label": "Insights",
+          "icon": "analytics",
+          "route": "#",
+          "active": true
+        },
+        {
+          "kind": "link",
+          "label": "settings",
+          "icon": "settings",
+          "route": "#",
+          "active": true
+        }
+      ],
+      "title": "Empty and Error Recovery - PantryPilot Q8M6"
+    },
+    "aeede69111e441aa8353ff45865b48ca": {
+      "screenId": "aeede69111e441aa8353ff45865b48ca",
+      "materialSymbolsRequired": true,
+      "sections": [
+        {
+          "tag": "nav",
+          "layout": "flex-col",
+          "classes": [
+            "hidden",
+            "md:flex",
+            "flex-col",
+            "bg-surface-container-low",
+            "border-r",
+            "border-outline-variant",
+            "h-full",
+            "w-64",
+            "p-md",
+            "gap-sm"
+          ],
+          "childCount": 2
+        },
+        {
+          "tag": "header",
+          "layout": "flex-row",
+          "classes": [
+            "flex",
+            "items-center",
+            "justify-between",
+            "px-margin-desktop",
+            "w-full",
+            "h-16",
+            "bg-surface",
+            "border-b",
+            "border-outline-variant",
+            "flex-shrink-0"
+          ],
+          "childCount": 4
+        },
+        {
+          "tag": "main",
+          "layout": "flex-row",
+          "classes": [
+            "flex-1",
+            "overflow-y-auto",
+            "p-margin-desktop",
+            "bg-background"
+          ],
+          "childCount": 28
+        },
+        {
+          "tag": "nav",
+          "layout": "flex-row",
+          "classes": [
+            "md:hidden",
+            "flex",
+            "items-center",
+            "justify-around",
+            "w-full",
+            "h-16",
+            "bg-surface-container-low",
+            "border-t",
+            "border-outline-variant",
+            "pb-safe"
+          ],
+          "childCount": 1
+        }
+      ],
+      "buttons": [
+        {
+          "kind": "button",
+          "label": "menu",
+          "classes": [
+            "md:hidden",
+            "text-on-surface-variant",
+            "hover:bg-surface-container-low",
+            "p-sm",
+            "rounded-full",
+            "transition-colors"
+          ],
+          "icon": "menu",
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "search",
+          "classes": [
+            "md:hidden",
+            "text-on-surface-variant",
+            "hover:bg-surface-container-low",
+            "p-sm",
+            "rounded-full",
+            "transition-colors"
+          ],
+          "icon": "search",
+          "action": "navigate",
+          "expectedBehavior": "navigate:/search",
+          "expectedRoute": "/search",
+          "routeInferred": true
+        },
+        {
+          "kind": "button",
+          "label": "Item",
+          "classes": [
+            "px-md",
+            "py-sm",
+            "bg-primary",
+            "text-on-primary",
+            "font-label-bold",
+            "text-label-bold",
+            "rounded-lg",
+            "shadow-sm",
+            "hover:bg-surface-tint",
+            "transition-colors",
+            "active:opacity-80",
+            "flex",
+            "items-center",
+            "gap-xs"
+          ],
+          "icon": "add",
+          "action": "create",
+          "expectedBehavior": "open create flow or add a new item/state"
+        },
+        {
+          "kind": "button",
+          "label": "Compact",
+          "classes": [
+            "flex-1",
+            "py-sm",
+            "px-md",
+            "text-center",
+            "z-10",
+            "relative",
+            "font-body-sm",
+            "text-body-sm",
+            "font-medium",
+            "text-on-surface",
+            "transition-colors"
+          ],
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Comfortable",
+          "classes": [
+            "flex-1",
+            "py-sm",
+            "px-md",
+            "text-center",
+            "z-10",
+            "relative",
+            "font-body-sm",
+            "text-body-sm",
+            "font-medium",
+            "text-on-surface-variant",
+            "hover:text-on-surface",
+            "transition-colors"
+          ],
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Manage All",
+          "classes": [
+            "text-primary",
+            "font-label-bold",
+            "text-label-bold",
+            "hover:underline"
+          ],
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "delete",
+          "classes": [
+            "text-on-surface-variant",
+            "opacity-0",
+            "group-hover:opacity-100",
+            "transition-opacity",
+            "hover:text-error",
+            "p-xs",
+            "rounded-full",
+            "hover:bg-surface-container-highest"
+          ],
+          "icon": "delete",
+          "action": "destructive",
+          "expectedBehavior": "perform destructive action with visible feedback or confirmation"
+        },
+        {
+          "kind": "button",
+          "label": "Reset to Defaults",
+          "classes": [
+            "font-label-bold",
+            "text-label-bold",
+            "text-error",
+            "hover:underline",
+            "px-md",
+            "py-sm",
+            "transition-colors",
+            "rounded-lg",
+            "hover:bg-error-container/20"
+          ],
+          "icon": null,
+          "action": "reset",
+          "expectedBehavior": "reset visible value/state, with confirmation if destructive"
+        },
+        {
+          "kind": "button",
+          "label": "Cancel",
+          "classes": [
+            "px-lg",
+            "py-sm",
+            "border",
+            "border-outline-variant",
+            "text-secondary",
+            "font-label-bold",
+            "text-label-bold",
+            "rounded-lg",
+            "hover:bg-surface-container-low",
+            "transition-colors"
+          ],
+          "icon": null,
+          "action": "dismiss",
+          "expectedBehavior": "close dialog/panel or return to previous state"
+        },
+        {
+          "kind": "button",
+          "label": "Save Preferences",
+          "classes": [
+            "px-lg",
+            "py-sm",
+            "bg-primary",
+            "text-on-primary",
+            "font-label-bold",
+            "text-label-bold",
+            "rounded-lg",
+            "shadow-sm",
+            "hover:bg-surface-tint",
+            "transition-colors",
+            "active:scale-95",
+            "flex",
+            "items-center",
+            "gap-sm"
+          ],
+          "icon": null,
+          "action": "form-submit",
+          "expectedBehavior": "validate inputs and submit/apply changes"
+        },
+        {
+          "kind": "button",
+          "label": "PantryPilot Management",
+          "classes": [],
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        }
+      ],
+      "inputs": [
+        {
+          "kind": "input",
+          "type": "text",
+          "label": "Search settings...",
+          "placeholder": "Search settings...",
+          "name": "",
+          "classes": [
+            "w-64",
+            "pl-xl",
+            "pr-sm",
+            "py-xs",
+            "bg-surface-container-low",
+            "border",
+            "border-outline-variant",
+            "rounded-full",
+            "font-body-sm",
+            "text-body-sm",
+            "focus:outline-none",
+            "focus:border-primary",
+            "focus:ring-1",
+            "focus:ring-primary",
+            "transition-colors"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "type": "radio",
+          "label": "default_view",
+          "placeholder": "",
+          "name": "default_view",
+          "classes": [
+            "peer",
+            "sr-only"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "type": "select",
+          "label": "select",
+          "placeholder": "",
+          "name": "",
+          "classes": [
+            "w-full",
+            "appearance-none",
+            "bg-surface",
+            "border",
+            "border-outline-variant",
+            "rounded-lg",
+            "py-sm",
+            "pl-md",
+            "pr-xl",
+            "font-body-md",
+            "text-body-md",
+            "text-on-surface",
+            "focus:outline-none",
+            "focus:border-primary",
+            "focus:ring-1",
+            "focus:ring-primary",
+            "transition-colors",
+            "cursor-pointer"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "type": "checkbox",
+          "label": "checkbox",
+          "placeholder": "",
+          "name": "",
+          "classes": [
+            "sr-only",
+            "peer"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        }
+      ],
+      "navLinks": [
+        {
+          "kind": "link",
+          "label": "Pantry",
+          "href": "#",
+          "classes": [
+            "font-body-md",
+            "text-body-md",
+            "font-medium"
+          ],
+          "icon": "inventory_2",
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Insights",
+          "href": "#",
+          "classes": [
+            "font-body-md",
+            "text-body-md",
+            "font-medium"
+          ],
+          "icon": "analytics",
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "settings",
+          "href": "#",
+          "classes": [
+            "font-body-md",
+            "text-body-md",
+            "font-bold"
+          ],
+          "icon": "settings",
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        }
+      ],
+      "cards": [],
+      "icons": [
+        "analytics",
+        "settings",
+        "menu",
+        "search",
+        "add",
+        "visibility",
+        "view_list",
+        "grid_view",
+        "notifications_active",
+        "expand_more",
+        "filter_list",
+        "delete",
+        "check_circle",
+        "sync"
+      ],
+      "images": [],
+      "cssVars": {},
+      "colorPalette": {
+        "inverse-primary": "#9dd3aa",
+        "primary-fixed-dim": "#9dd3aa",
+        "on-secondary-fixed-variant": "#414750",
+        "background": "#f8faf5",
+        "secondary-fixed-dim": "#c1c7d2",
+        "surface-container-highest": "#e1e3de",
+        "surface-tint": "#376847",
+        "on-surface": "#191c19",
+        "surface-bright": "#f8faf5",
+        "inverse-surface": "#2e312e",
+        "primary": "#316342",
+        "surface-container": "#edeee9",
+        "on-tertiary-fixed": "#380b16",
+        "on-error": "#ffffff",
+        "on-primary-fixed-variant": "#1e5031",
+        "primary-container": "#4a7c59",
+        "secondary-fixed": "#dde3ee",
+        "tertiary-fixed-dim": "#ffb2bc",
+        "on-primary-fixed": "#00210e",
+        "on-surface-variant": "#414942",
+        "on-secondary": "#ffffff",
+        "secondary-container": "#dde3ee",
+        "on-primary": "#ffffff",
+        "surface-container-high": "#e7e9e4",
+        "error": "#ba1a1a",
+        "on-tertiary-fixed-variant": "#6d363f",
+        "surface-container-lowest": "#ffffff",
+        "tertiary": "#834751",
+        "on-tertiary": "#ffffff",
+        "tertiary-fixed": "#ffd9dd",
+        "secondary": "#595f68",
+        "surface-dim": "#d9dbd6",
+        "tertiary-container": "#9f5f69",
+        "outline-variant": "#c1c9bf",
+        "surface-variant": "#e1e3de",
+        "on-tertiary-container": "#fff5f5",
+        "outline": "#717971",
+        "error-container": "#ffdad6",
+        "on-secondary-fixed": "#161c24",
+        "surface": "#f8faf5",
+        "inverse-on-surface": "#f0f1ec",
+        "on-secondary-container": "#5f656e",
+        "on-primary-container": "#e1ffe5",
+        "on-error-container": "#93000a",
+        "surface-container-low": "#f3f4ef",
+        "on-background": "#191c19",
+        "primary-fixed": "#b9efc5"
+      },
+      "fonts": [
+        "Inter",
+        "Material Symbols Outlined"
+      ],
+      "layoutHints": {
+        "gridCols": 1,
+        "flexDirection": "col",
+        "gap": "1"
+      },
+      "behaviorContract": [
+        {
+          "kind": "link",
+          "label": "Pantry",
+          "icon": "inventory_2",
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Insights",
+          "icon": "analytics",
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "settings",
+          "icon": "settings",
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "button",
+          "label": "menu",
+          "icon": "menu",
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "search",
+          "icon": "search",
+          "action": "navigate",
+          "route": "/search",
+          "expectedBehavior": "navigate:/search"
+        },
+        {
+          "kind": "button",
+          "label": "Item",
+          "icon": "add",
+          "action": "create",
+          "expectedBehavior": "open create flow or add a new item/state"
+        },
+        {
+          "kind": "button",
+          "label": "Compact",
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Comfortable",
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Manage All",
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "delete",
+          "icon": "delete",
+          "action": "destructive",
+          "expectedBehavior": "perform destructive action with visible feedback or confirmation"
+        },
+        {
+          "kind": "button",
+          "label": "Reset to Defaults",
+          "icon": null,
+          "action": "reset",
+          "expectedBehavior": "reset visible value/state, with confirmation if destructive"
+        },
+        {
+          "kind": "button",
+          "label": "Cancel",
+          "icon": null,
+          "action": "dismiss",
+          "expectedBehavior": "close dialog/panel or return to previous state"
+        },
+        {
+          "kind": "button",
+          "label": "Save Preferences",
+          "icon": null,
+          "action": "form-submit",
+          "expectedBehavior": "validate inputs and submit/apply changes"
+        },
+        {
+          "kind": "button",
+          "label": "PantryPilot Management",
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "input",
+          "label": "Search settings...",
+          "type": "text",
+          "placeholder": "Search settings...",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "label": "default_view",
+          "type": "radio",
+          "placeholder": "",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "label": "select",
+          "type": "select",
+          "placeholder": "",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "label": "checkbox",
+          "type": "checkbox",
+          "placeholder": "",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        }
+      ],
+      "tabBar": [
+        {
+          "kind": "button",
+          "label": "PantryPilot Management",
+          "icon": null,
+          "active": true
+        },
+        {
+          "kind": "link",
+          "label": "Pantry",
+          "icon": "inventory_2",
+          "route": "#",
+          "active": false
+        },
+        {
+          "kind": "link",
+          "label": "Insights",
+          "icon": "analytics",
+          "route": "#",
+          "active": false
+        },
+        {
+          "kind": "link",
+          "label": "settings",
+          "icon": "settings",
+          "route": "#",
+          "active": true
+        },
+        {
+          "kind": "link",
+          "label": "Pantry",
+          "icon": "inventory_2",
+          "route": "#",
+          "active": false
+        },
+        {
+          "kind": "link",
+          "label": "Insights",
+          "icon": "analytics",
+          "route": "#",
+          "active": false
+        }
+      ],
+      "title": "Settings and Preferences - PantryPilot Q8M6"
+    },
+    "d252cf61308342a59c99065d9b5d045e": {
+      "screenId": "d252cf61308342a59c99065d9b5d045e",
+      "materialSymbolsRequired": true,
+      "sections": [
+        {
+          "tag": "nav",
+          "layout": "flex-col",
+          "classes": [
+            "hidden",
+            "md:flex",
+            "fixed",
+            "left-0",
+            "top-0",
+            "h-full",
+            "w-64",
+            "flex-col",
+            "p-md",
+            "gap-sm"
+          ],
+          "childCount": 4
+        },
+        {
+          "tag": "header",
+          "layout": "flex-row",
+          "classes": [
+            "bg-surface",
+            "flex",
+            "items-center",
+            "justify-between",
+            "px-margin-desktop",
+            "w-full",
+            "h-16",
+            "border-b",
+            "border-outline-variant",
+            "z-10"
+          ],
+          "childCount": 3
+        },
+        {
+          "tag": "main",
+          "layout": "flex-row",
+          "classes": [
+            "flex-1",
+            "overflow-y-auto",
+            "p-margin-mobile",
+            "md:p-margin-desktop",
+            "pb-[120px]"
+          ],
+          "childCount": 22
+        }
+      ],
+      "buttons": [
+        {
+          "kind": "button",
+          "label": "menu",
+          "classes": [
+            "md:hidden",
+            "flex",
+            "items-center",
+            "justify-center",
+            "p-xs",
+            "rounded-full",
+            "hover:bg-surface-container-low",
+            "text-on-surface-variant",
+            "transition-colors"
+          ],
+          "icon": "menu",
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Item",
+          "classes": [
+            "hidden",
+            "md:flex",
+            "items-center",
+            "gap-xs",
+            "px-md",
+            "h-8",
+            "bg-primary",
+            "text-on-primary",
+            "rounded-DEFAULT",
+            "hover:bg-primary-container",
+            "hover:text-on-primary-container",
+            "transition-colors",
+            "font-body-sm",
+            "text-body-sm",
+            "font-bold"
+          ],
+          "icon": "add",
+          "action": "create",
+          "expectedBehavior": "open create flow or add a new item/state"
+        },
+        {
+          "kind": "button",
+          "label": "remove",
+          "classes": [
+            "w-10",
+            "h-full",
+            "flex",
+            "items-center",
+            "justify-center",
+            "hover:bg-surface-container-low",
+            "text-on-surface-variant",
+            "transition-colors",
+            "border-r",
+            "border-outline-variant"
+          ],
+          "icon": "remove",
+          "action": "destructive",
+          "expectedBehavior": "perform destructive action with visible feedback or confirmation"
+        },
+        {
+          "kind": "button",
+          "label": "add",
+          "classes": [
+            "w-10",
+            "h-full",
+            "flex",
+            "items-center",
+            "justify-center",
+            "hover:bg-surface-container-low",
+            "text-on-surface-variant",
+            "transition-colors",
+            "border-l",
+            "border-outline-variant"
+          ],
+          "icon": "add",
+          "action": "create",
+          "expectedBehavior": "open create flow or add a new item/state"
+        },
+        {
+          "kind": "button",
+          "label": "Cancel",
+          "classes": [
+            "h-8",
+            "px-md",
+            "rounded-DEFAULT",
+            "border",
+            "border-outline",
+            "bg-transparent",
+            "text-secondary",
+            "font-body-sm",
+            "text-body-sm",
+            "hover:bg-surface-container-low",
+            "transition-colors"
+          ],
+          "icon": null,
+          "action": "dismiss",
+          "expectedBehavior": "close dialog/panel or return to previous state"
+        },
+        {
+          "kind": "button",
+          "label": "Save Changes",
+          "classes": [
+            "h-8",
+            "px-lg",
+            "rounded-DEFAULT",
+            "bg-primary",
+            "text-on-primary",
+            "font-body-sm",
+            "text-body-sm",
+            "font-bold",
+            "hover:bg-primary-container",
+            "hover:text-on-primary-container",
+            "transition-colors",
+            "shadow-sm"
+          ],
+          "icon": null,
+          "action": "form-submit",
+          "expectedBehavior": "validate inputs and submit/apply changes"
+        },
+        {
+          "kind": "button",
+          "label": "PantryPilot Management",
+          "classes": [],
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        }
+      ],
+      "inputs": [
+        {
+          "kind": "input",
+          "type": "text",
+          "label": "item-name",
+          "placeholder": "",
+          "name": "item-name",
+          "classes": [
+            "h-10",
+            "px-md",
+            "rounded-DEFAULT",
+            "border",
+            "border-error",
+            "bg-surface-container-lowest",
+            "focus:border-error",
+            "focus:ring-1",
+            "focus:ring-error",
+            "outline-none",
+            "transition-colors",
+            "font-body-md",
+            "text-body-md",
+            "text-on-surface",
+            "w-full"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "type": "select",
+          "label": "category",
+          "placeholder": "",
+          "name": "category",
+          "classes": [
+            "appearance-none",
+            "h-10",
+            "px-md",
+            "pr-xl",
+            "rounded-DEFAULT",
+            "border",
+            "border-outline-variant",
+            "bg-surface-container-lowest",
+            "focus:border-primary",
+            "focus:ring-1",
+            "focus:ring-primary",
+            "outline-none",
+            "transition-colors",
+            "font-body-md",
+            "text-body-md",
+            "text-on-surface",
+            "w-full",
+            "cursor-pointer"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "type": "text",
+          "label": "text",
+          "placeholder": "",
+          "name": "",
+          "classes": [
+            "w-12",
+            "h-full",
+            "text-center",
+            "border-none",
+            "focus:ring-0",
+            "font-mono-data",
+            "text-mono-data",
+            "bg-transparent",
+            "text-on-surface",
+            "p-0"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "type": "select",
+          "label": "select",
+          "placeholder": "",
+          "name": "",
+          "classes": [
+            "appearance-none",
+            "h-10",
+            "px-sm",
+            "pr-lg",
+            "rounded-DEFAULT",
+            "border",
+            "border-outline-variant",
+            "bg-surface-container-lowest",
+            "focus:border-primary",
+            "focus:ring-1",
+            "focus:ring-primary",
+            "outline-none",
+            "transition-colors",
+            "font-body-md",
+            "text-body-md",
+            "text-on-surface",
+            "w-full",
+            "cursor-pointer"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "type": "date",
+          "label": "expiry",
+          "placeholder": "",
+          "name": "expiry",
+          "classes": [
+            "appearance-none",
+            "h-10",
+            "px-md",
+            "rounded-DEFAULT",
+            "border",
+            "border-outline-variant",
+            "bg-surface-container-lowest",
+            "focus:border-primary",
+            "focus:ring-1",
+            "focus:ring-primary",
+            "outline-none",
+            "transition-colors",
+            "font-body-md",
+            "text-body-md",
+            "text-on-surface",
+            "w-full",
+            "cursor-pointer"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "type": "radio",
+          "label": "priority",
+          "placeholder": "",
+          "name": "priority",
+          "classes": [
+            "text-primary",
+            "focus:ring-primary",
+            "h-4",
+            "w-4",
+            "border-outline-variant"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        }
+      ],
+      "navLinks": [
+        {
+          "kind": "link",
+          "label": "Pantry",
+          "href": "#",
+          "classes": [
+            "font-body-md",
+            "text-body-md"
+          ],
+          "icon": "inventory_2",
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Insights",
+          "href": "#",
+          "classes": [
+            "font-body-md",
+            "text-body-md"
+          ],
+          "icon": "analytics",
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "settings",
+          "href": "#",
+          "classes": [
+            "font-body-md",
+            "text-body-md"
+          ],
+          "icon": "settings",
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Back to Pantry",
+          "href": "#",
+          "classes": [
+            "material-symbols-outlined",
+            "text-[16px]"
+          ],
+          "icon": "arrow_back",
+          "action": "navigate",
+          "expectedBehavior": "navigate:#"
+        }
+      ],
+      "cards": [],
+      "icons": [
+        "analytics",
+        "settings",
+        "menu",
+        "add",
+        "arrow_back",
+        "error",
+        "warning",
+        "expand_more",
+        "remove"
+      ],
+      "images": [],
+      "cssVars": {},
+      "colorPalette": {
+        "inverse-primary": "#9dd3aa",
+        "primary-fixed-dim": "#9dd3aa",
+        "on-secondary-fixed-variant": "#414750",
+        "background": "#f8faf5",
+        "secondary-fixed-dim": "#c1c7d2",
+        "surface-container-highest": "#e1e3de",
+        "surface-tint": "#376847",
+        "on-surface": "#191c19",
+        "surface-bright": "#f8faf5",
+        "inverse-surface": "#2e312e",
+        "primary": "#316342",
+        "surface-container": "#edeee9",
+        "on-tertiary-fixed": "#380b16",
+        "on-error": "#ffffff",
+        "on-primary-fixed-variant": "#1e5031",
+        "primary-container": "#4a7c59",
+        "secondary-fixed": "#dde3ee",
+        "tertiary-fixed-dim": "#ffb2bc",
+        "on-primary-fixed": "#00210e",
+        "on-surface-variant": "#414942",
+        "on-secondary": "#ffffff",
+        "secondary-container": "#dde3ee",
+        "on-primary": "#ffffff",
+        "surface-container-high": "#e7e9e4",
+        "error": "#ba1a1a",
+        "on-tertiary-fixed-variant": "#6d363f",
+        "surface-container-lowest": "#ffffff",
+        "tertiary": "#834751",
+        "on-tertiary": "#ffffff",
+        "tertiary-fixed": "#ffd9dd",
+        "secondary": "#595f68",
+        "surface-dim": "#d9dbd6",
+        "tertiary-container": "#9f5f69",
+        "outline-variant": "#c1c9bf",
+        "surface-variant": "#e1e3de",
+        "on-tertiary-container": "#fff5f5",
+        "outline": "#717971",
+        "error-container": "#ffdad6",
+        "on-secondary-fixed": "#161c24",
+        "surface": "#f8faf5",
+        "inverse-on-surface": "#f0f1ec",
+        "on-secondary-container": "#5f656e",
+        "on-primary-container": "#e1ffe5",
+        "on-error-container": "#93000a",
+        "surface-container-low": "#f3f4ef",
+        "on-background": "#191c19",
+        "primary-fixed": "#b9efc5"
+      },
+      "fonts": [
+        "Material Symbols Outlined"
+      ],
+      "layoutHints": {
+        "gridCols": 1,
+        "flexDirection": "col"
+      },
+      "behaviorContract": [
+        {
+          "kind": "link",
+          "label": "Pantry",
+          "icon": "inventory_2",
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Insights",
+          "icon": "analytics",
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "settings",
+          "icon": "settings",
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "link",
+          "label": "Back to Pantry",
+          "icon": "arrow_back",
+          "route": "#",
+          "expectedBehavior": "navigate:#"
+        },
+        {
+          "kind": "button",
+          "label": "menu",
+          "icon": "menu",
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "Item",
+          "icon": "add",
+          "action": "create",
+          "expectedBehavior": "open create flow or add a new item/state"
+        },
+        {
+          "kind": "button",
+          "label": "remove",
+          "icon": "remove",
+          "action": "destructive",
+          "expectedBehavior": "perform destructive action with visible feedback or confirmation"
+        },
+        {
+          "kind": "button",
+          "label": "add",
+          "icon": "add",
+          "action": "create",
+          "expectedBehavior": "open create flow or add a new item/state"
+        },
+        {
+          "kind": "button",
+          "label": "Cancel",
+          "icon": null,
+          "action": "dismiss",
+          "expectedBehavior": "close dialog/panel or return to previous state"
+        },
+        {
+          "kind": "button",
+          "label": "Save Changes",
+          "icon": null,
+          "action": "form-submit",
+          "expectedBehavior": "validate inputs and submit/apply changes"
+        },
+        {
+          "kind": "button",
+          "label": "PantryPilot Management",
+          "icon": null,
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "input",
+          "label": "item-name",
+          "type": "text",
+          "placeholder": "",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "label": "category",
+          "type": "select",
+          "placeholder": "",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "label": "text",
+          "type": "text",
+          "placeholder": "",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "label": "select",
+          "type": "select",
+          "placeholder": "",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "label": "expiry",
+          "type": "date",
+          "placeholder": "",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        },
+        {
+          "kind": "input",
+          "label": "priority",
+          "type": "radio",
+          "placeholder": "",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        }
+      ],
+      "tabBar": [
+        {
+          "kind": "button",
+          "label": "PantryPilot Management",
+          "icon": null,
+          "active": true
+        },
+        {
+          "kind": "link",
+          "label": "Pantry",
+          "icon": "inventory_2",
+          "route": "#",
+          "active": true
+        },
+        {
+          "kind": "link",
+          "label": "Insights",
+          "icon": "analytics",
+          "route": "#",
+          "active": true
+        },
+        {
+          "kind": "link",
+          "label": "settings",
+          "icon": "settings",
+          "route": "#",
+          "active": true
+        }
+      ],
+      "title": "Item Editor - PantryPilot Q8M6"
+    }
+  }
+}
