@@ -8,13 +8,27 @@ import {
 } from './pantrypilot-q8m6.repo';
 
 export type PantryPilotRoute = 'pantry' | 'empty' | 'editor' | 'settings' | 'insights';
+export type PantryPilotPanel =
+  | PantryPilotRoute
+  | 'all-items'
+  | 'produce'
+  | 'dairy'
+  | 'canned-goods'
+  | 'expiring'
+  | 'shopping-priority'
+  | 'meal-plan'
+  | 'inventory-health'
+  | 'storage-check'
+  | 'notifications';
 export type PantryPilotStorageStatus = PantryPilotLoadResult['status'] | 'saved' | 'error';
 
 export type PantryPilotSnapshot = {
   activeScreen: PantryPilotRoute;
   route: PantryPilotRoute;
-  activePanel: PantryPilotRoute;
+  activePanel: PantryPilotPanel;
   selectedRecord: PantryItem | null;
+  selectedItem: PantryItem | null;
+  itemCount: number;
   counts: {
     total: number;
     produce: number;
@@ -25,6 +39,7 @@ export type PantryPilotSnapshot = {
   };
   storageStatus: PantryPilotStorageStatus;
   lastError: string | null;
+  statusMessage: string;
   preferences: PantryPreferences;
 };
 
@@ -38,6 +53,8 @@ export type PantryPilotActions = {
   setDensity: (density: PantryPreferences['density']) => void;
   resetPreferences: () => void;
   savePreferences: () => void;
+  focusPanel: (panel: PantryPilotPanel) => void;
+  markAction: (message: string) => void;
 };
 
 const EXPIRING_SOON_DAYS = 7;
@@ -64,9 +81,13 @@ export function usePantryPilotStore(): [PantryPilotSnapshot, PantryPilotActions]
   const [items, setItems] = useState(() => loadResult.state.items);
   const [preferences, setPreferences] = useState(() => loadResult.state.preferences);
   const [activeRoute, setActiveRoute] = useState<PantryPilotRoute>('pantry');
+  const [activePanel, setActivePanel] = useState<PantryPilotPanel>('pantry');
   const [selectedId, setSelectedId] = useState<string | null>(() => loadResult.state.items[0]?.id ?? null);
   const [storageStatus, setStorageStatus] = useState<PantryPilotStorageStatus>(loadResult.status);
   const [lastError, setLastError] = useState<string | null>(loadResult.error);
+  const [statusMessage, setStatusMessage] = useState(() =>
+    loadResult.error ? loadResult.error : 'Pantry data loaded from local storage.',
+  );
   const hasMounted = useRef(false);
 
   useEffect(() => {
@@ -78,6 +99,7 @@ export function usePantryPilotStore(): [PantryPilotSnapshot, PantryPilotActions]
     const error = savePantryPilotState({ items, preferences });
     setStorageStatus(error ? 'error' : 'saved');
     setLastError(error);
+    setStatusMessage(error ?? 'Pantry changes saved locally.');
   }, [items, preferences]);
 
   const selectedRecord = useMemo(
@@ -100,33 +122,44 @@ export function usePantryPilotStore(): [PantryPilotSnapshot, PantryPilotActions]
   const snapshot: PantryPilotSnapshot = {
     activeScreen: activeRoute,
     route: activeRoute,
-    activePanel: activeRoute,
+    activePanel,
     selectedRecord,
+    selectedItem: selectedRecord,
+    itemCount: counts.total,
     counts,
     storageStatus,
     lastError,
+    statusMessage,
     preferences,
   };
 
   const actions: PantryPilotActions = {
     navigate: (route) => {
       setActiveRoute(route);
+      setActivePanel(route);
+      setStatusMessage(`${route[0].toUpperCase()}${route.slice(1)} view opened.`);
     },
     selectFirstItem: () => {
       const next = items[0] ?? makeDraftItem(preferences.defaultCategory);
       setSelectedId(next.id);
       setActiveRoute('editor');
+      setActivePanel('editor');
       if (!items.length) setItems([next]);
+      setStatusMessage(`${next.name} opened for editing.`);
     },
     addStarterItem: () => {
       const next = makeDraftItem(preferences.defaultCategory);
       setItems((current) => [next, ...current]);
       setSelectedId(next.id);
       setActiveRoute('editor');
+      setActivePanel('editor');
+      setStatusMessage('Draft pantry item created.');
     },
     clearFilters: () => {
       setActiveRoute(items.length ? 'pantry' : 'empty');
+      setActivePanel('all-items');
       setLastError(null);
+      setStatusMessage('Pantry filters cleared.');
     },
     retryLoad: () => {
       const next = loadPantryPilotState();
@@ -137,6 +170,8 @@ export function usePantryPilotStore(): [PantryPilotSnapshot, PantryPilotActions]
       setStorageStatus(next.status);
       setLastError(next.error);
       setActiveRoute(next.state.items.length ? 'pantry' : 'empty');
+      setActivePanel(next.state.items.length ? 'pantry' : 'empty');
+      setStatusMessage(next.error ?? 'Pantry data reloaded from local storage.');
     },
     reorderSelected: () => {
       if (!selectedRecord) return;
@@ -144,10 +179,14 @@ export function usePantryPilotStore(): [PantryPilotSnapshot, PantryPilotActions]
         current.map((item) => (item.id === selectedRecord.id ? { ...item, quantity: item.quantity + item.reorderAt } : item)),
       );
       setActiveRoute('pantry');
+      setActivePanel('shopping-priority');
+      setStatusMessage(`${selectedRecord.name} reorder quantity updated.`);
     },
     setDensity: (density) => {
       setPreferences((current) => ({ ...current, density }));
       setActiveRoute('settings');
+      setActivePanel('settings');
+      setStatusMessage(`${density === 'compact' ? 'Compact' : 'Comfortable'} density selected.`);
     },
     resetPreferences: () => {
       const next = resetPantryPilotState();
@@ -157,12 +196,24 @@ export function usePantryPilotStore(): [PantryPilotSnapshot, PantryPilotActions]
       setStorageStatus('ready');
       setLastError(null);
       setActiveRoute('settings');
+      setActivePanel('settings');
+      setStatusMessage('Local pantry data cleared and defaults restored.');
     },
     savePreferences: () => {
       const error = savePantryPilotState({ items, preferences });
       setStorageStatus(error ? 'error' : 'saved');
       setLastError(error);
       setActiveRoute('pantry');
+      setActivePanel('pantry');
+      setStatusMessage(error ?? 'Preferences saved locally.');
+    },
+    focusPanel: (panel) => {
+      setActivePanel(panel);
+      setActiveRoute(panel === 'settings' ? 'settings' : panel === 'insights' ? 'insights' : 'pantry');
+      setStatusMessage(`${panel.replace(/-/g, ' ')} panel selected.`);
+    },
+    markAction: (message) => {
+      setStatusMessage(message);
     },
   };
 
