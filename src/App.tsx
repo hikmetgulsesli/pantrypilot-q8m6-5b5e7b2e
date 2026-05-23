@@ -12,6 +12,19 @@ import {
 import { usePantryPilotStore } from './features/pantrypilot-q8m6/pantrypilot-q8m6.store';
 import { publishPantryPilotBridge } from './test/bridge';
 
+function InsightsPlaceholder() {
+  return (
+    <main className="mx-auto flex min-h-[calc(100vh-41px)] max-w-5xl flex-col justify-center px-6 py-12">
+      <p className="text-sm font-semibold uppercase tracking-wide text-emerald-700">Insights</p>
+      <h1 className="mt-3 text-4xl font-semibold text-slate-950">Pantry insights are being prepared.</h1>
+      <p className="mt-4 max-w-2xl text-base leading-7 text-slate-700">
+        Shopping priority, meal planning, and inventory health panels are available from the pantry action tabs while the
+        dedicated insights view is completed.
+      </p>
+    </main>
+  );
+}
+
 export default function App() {
   const [snapshot, actions] = usePantryPilotStore();
 
@@ -85,7 +98,7 @@ export default function App() {
     'settings-6': () => actions.navigate('settings'),
   };
 
-  const activeRoute = snapshot.activeScreen === 'empty' || snapshot.activeScreen === 'insights' ? 'empty' : snapshot.activeScreen;
+  const activeRoute = snapshot.activeScreen;
 
   return (
     <div data-setfarm-root="pantrypilot-q8m6" data-active-route={snapshot.route} className="min-h-screen bg-slate-50 text-slate-950">
@@ -104,6 +117,7 @@ export default function App() {
       {activeRoute === 'editor' && <ItemEditorPantrypilotQ8m6 actions={editorActions} />}
       {activeRoute === 'settings' && <SettingsAndPreferencesPantrypilotQ8m6 actions={settingsActions} />}
       {activeRoute === 'empty' && <EmptyAndErrorRecoveryPantrypilotQ8m6 actions={emptyActions} />}
+      {activeRoute === 'insights' && <InsightsPlaceholder />}
     </div>
   );
 }

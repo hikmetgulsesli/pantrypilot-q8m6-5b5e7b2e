@@ -7,6 +7,14 @@ import {
 
 const STORAGE_KEY = 'pantrypilot-q8m6:shell';
 
+const getBrowserStorage = (): Storage | undefined => {
+  try {
+    return globalThis.localStorage;
+  } catch {
+    return undefined;
+  }
+};
+
 export type PantryPilotPersistedState = {
   items: PantryItem[];
   preferences: PantryPreferences;
@@ -29,7 +37,7 @@ const isPersistedState = (value: unknown): value is PantryPilotPersistedState =>
   return Array.isArray(candidate.items) && Boolean(candidate.preferences);
 };
 
-export function loadPantryPilotState(storage: Storage | undefined = globalThis.localStorage): PantryPilotLoadResult {
+export function loadPantryPilotState(storage: Storage | undefined = getBrowserStorage()): PantryPilotLoadResult {
   const state = fallbackState();
 
   if (!storage) {
@@ -84,7 +92,7 @@ export function loadPantryPilotState(storage: Storage | undefined = globalThis.l
 
 export function savePantryPilotState(
   state: PantryPilotPersistedState,
-  storage: Storage | undefined = globalThis.localStorage,
+  storage: Storage | undefined = getBrowserStorage(),
 ): string | null {
   if (!storage) return 'Local storage is unavailable; changes are kept for this session only.';
 
@@ -96,7 +104,7 @@ export function savePantryPilotState(
   }
 }
 
-export function resetPantryPilotState(storage: Storage | undefined = globalThis.localStorage): PantryPilotPersistedState {
+export function resetPantryPilotState(storage: Storage | undefined = getBrowserStorage()): PantryPilotPersistedState {
   try {
     storage?.removeItem(STORAGE_KEY);
   } catch {

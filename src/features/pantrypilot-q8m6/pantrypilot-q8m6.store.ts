@@ -58,12 +58,14 @@ export type PantryPilotActions = {
 };
 
 const EXPIRING_SOON_DAYS = 7;
+const MS_PER_DAY = 86_400_000;
+const DEFAULT_REORDER_QUANTITY = 1;
 
 const dateDiffInDays = (isoDate: string) => {
   const expires = new Date(`${isoDate}T00:00:00`);
   const today = new Date();
   today.setHours(0, 0, 0, 0);
-  return Math.ceil((expires.getTime() - today.getTime()) / 86_400_000);
+  return Math.ceil((expires.getTime() - today.getTime()) / MS_PER_DAY);
 };
 
 const makeDraftItem = (defaultCategory: PantryCategory): PantryItem => ({
@@ -72,8 +74,9 @@ const makeDraftItem = (defaultCategory: PantryCategory): PantryItem => ({
   category: defaultCategory,
   quantity: 1,
   unit: 'unit',
-  expiresOn: new Date(Date.now() + 14 * 86_400_000).toISOString().slice(0, 10),
+  expiresOn: new Date(Date.now() + 14 * MS_PER_DAY).toISOString().slice(0, 10),
   reorderAt: 1,
+  reorderQuantity: DEFAULT_REORDER_QUANTITY,
 });
 
 export function usePantryPilotStore(): [PantryPilotSnapshot, PantryPilotActions] {
@@ -176,7 +179,11 @@ export function usePantryPilotStore(): [PantryPilotSnapshot, PantryPilotActions]
     reorderSelected: () => {
       if (!selectedRecord) return;
       setItems((current) =>
-        current.map((item) => (item.id === selectedRecord.id ? { ...item, quantity: item.quantity + item.reorderAt } : item)),
+        current.map((item) =>
+          item.id === selectedRecord.id
+            ? { ...item, quantity: item.quantity + (item.reorderQuantity ?? DEFAULT_REORDER_QUANTITY) }
+            : item,
+        ),
       );
       setActiveRoute('pantry');
       setActivePanel('shopping-priority');

@@ -8,6 +8,7 @@ export type PantryItem = {
   unit: string;
   expiresOn: string;
   reorderAt: number;
+  reorderQuantity?: number;
 };
 
 export type PantryPreferences = {
@@ -25,6 +26,7 @@ export const PANTRYPILOT_Q8M6_FIXTURE_ITEMS: PantryItem[] = [
     unit: 'bags',
     expiresOn: '2026-05-28',
     reorderAt: 1,
+    reorderQuantity: 3,
   },
   {
     id: 'item-yogurt',
@@ -34,6 +36,7 @@ export const PANTRYPILOT_Q8M6_FIXTURE_ITEMS: PantryItem[] = [
     unit: 'cups',
     expiresOn: '2026-06-02',
     reorderAt: 2,
+    reorderQuantity: 6,
   },
   {
     id: 'item-beans',
@@ -43,6 +46,7 @@ export const PANTRYPILOT_Q8M6_FIXTURE_ITEMS: PantryItem[] = [
     unit: 'cans',
     expiresOn: '2027-01-15',
     reorderAt: 3,
+    reorderQuantity: 4,
   },
 ];
 
