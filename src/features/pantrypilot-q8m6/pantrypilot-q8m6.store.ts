@@ -60,6 +60,9 @@ export type PantryPilotActions = {
 const EXPIRING_SOON_DAYS = 7;
 const MS_PER_DAY = 86_400_000;
 const DEFAULT_REORDER_QUANTITY = 1;
+let draftIdSequence = 0;
+
+const makeDraftId = () => `item-draft-${globalThis.crypto?.randomUUID?.() ?? `fallback-${(draftIdSequence += 1)}`}`;
 
 const dateDiffInDays = (isoDate: string) => {
   const expires = new Date(`${isoDate}T00:00:00`);
@@ -69,7 +72,7 @@ const dateDiffInDays = (isoDate: string) => {
 };
 
 const makeDraftItem = (defaultCategory: PantryCategory): PantryItem => ({
-  id: `item-draft-${Date.now()}`,
+  id: makeDraftId(),
   name: 'New pantry item',
   category: defaultCategory,
   quantity: 1,
@@ -143,11 +146,18 @@ export function usePantryPilotStore(): [PantryPilotSnapshot, PantryPilotActions]
       setStatusMessage(`${route[0].toUpperCase()}${route.slice(1)} view opened.`);
     },
     selectFirstItem: () => {
-      const next = items[0] ?? makeDraftItem(preferences.defaultCategory);
+      const next = items[0];
+      if (!next) {
+        setActiveRoute('empty');
+        setActivePanel('empty');
+        setSelectedId(null);
+        setStatusMessage('No pantry item is available to edit yet.');
+        return;
+      }
+
       setSelectedId(next.id);
       setActiveRoute('editor');
       setActivePanel('editor');
-      if (!items.length) setItems([next]);
       setStatusMessage(`${next.name} opened for editing.`);
     },
     addStarterItem: () => {
