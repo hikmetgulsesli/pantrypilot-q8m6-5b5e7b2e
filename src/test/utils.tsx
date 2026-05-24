@@ -25,7 +25,7 @@ describe('settings preferences action wiring', () => {
 
     fireEvent.click(screen.getByRole('button', { name: /compact/i }));
     expect(screen.getByRole('button', { name: /compact/i })).toHaveAttribute('aria-pressed', 'true');
-    expect(screen.getByRole('status')).toHaveTextContent('Compact density selected.');
+    expect(screen.getByRole('status')).toHaveTextContent('Pantry changes saved locally.');
 
     const deleteFilterButton = container.querySelector<HTMLElement>('[data-action-id="button-7-7"]');
     expect(deleteFilterButton).not.toBeNull();
