@@ -9,7 +9,10 @@ import {
   type ItemOperationsPantrypilotQ8m6ActionId,
   type SettingsAndPreferencesPantrypilotQ8m6ActionId,
 } from './screens';
-import type { SettingsPreferencesDraft } from './features/surf-settings-and-preferences/act_save_preferences';
+import {
+  actSavePreferences,
+  type SettingsPreferencesDraft,
+} from './features/surf-settings-and-preferences/act_save_preferences';
 import { usePantryPilotStore } from './features/pantrypilot-q8m6/pantrypilot-q8m6.store';
 import { publishPantryPilotBridge } from './test/bridge';
 
@@ -50,9 +53,11 @@ export default function App() {
 
   const updateSettingsDraft = (next: SettingsPreferencesDraft) => {
     setSettingsDraft(next);
-    if (next.density !== settingsDraft.density) {
-      actions.setDensity(next.density);
-    }
+  };
+
+  const selectSettingsDensity = (density: SettingsPreferencesDraft['density']) => {
+    setSettingsDraft((current) => ({ ...current, density }));
+    actions.markAction(`${density === 'compact' ? 'Compact' : 'Comfortable'} density selected.`);
   };
 
   const pantryActions: Partial<Record<ItemOperationsPantrypilotQ8m6ActionId, () => void>> = {
@@ -108,14 +113,14 @@ export default function App() {
       actions.markAction('Settings search opened at /search.');
     },
     'add-item-3': actions.addStarterItem,
-    'compact-4': () => actions.setDensity('compact'),
-    'comfortable-5': () => actions.setDensity('comfortable'),
+    'compact-4': () => selectSettingsDensity('compact'),
+    'comfortable-5': () => selectSettingsDensity('comfortable'),
     'manage-all-6': () => actions.navigate('pantry'),
     'button-7-7': () => actions.markAction('Delete confirmation opened for saved filter: Expiring Soon.'),
     'button-8-8': () => actions.markAction('Delete confirmation opened for saved filter: Baking Supplies.'),
     'reset-to-defaults-9': actions.resetPreferences,
     'cancel-10': () => actions.navigate('pantry'),
-    'save-preferences-11': actions.savePreferences,
+    'save-preferences-11': () => actSavePreferences(actions, settingsDraft),
     'pantry-1': () => actions.navigate('pantry'),
     'insights-2': () => actions.navigate('insights'),
     'settings-3': () => actions.navigate('settings'),
