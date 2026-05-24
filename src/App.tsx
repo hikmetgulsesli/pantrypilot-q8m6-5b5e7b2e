@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   EmptyAndErrorRecoveryPantrypilotQ8m6,
   ItemEditorPantrypilotQ8m6,
@@ -9,10 +9,6 @@ import {
   type ItemOperationsPantrypilotQ8m6ActionId,
   type SettingsAndPreferencesPantrypilotQ8m6ActionId,
 } from './screens';
-import {
-  actSavePreferences,
-  type SettingsPreferencesDraft,
-} from './features/surf-settings-and-preferences/act_save_preferences';
 import { usePantryPilotStore } from './features/pantrypilot-q8m6/pantrypilot-q8m6.store';
 import { publishPantryPilotBridge } from './test/bridge';
 
@@ -31,33 +27,25 @@ function InsightsPlaceholder() {
 
 export default function App() {
   const [snapshot, actions] = usePantryPilotStore();
-  const [settingsDraft, setSettingsDraft] = useState<SettingsPreferencesDraft>(() => ({
-    defaultView: 'list',
-    density: snapshot.preferences.density,
-    expiryThresholdDays: 7,
-    lowStockAlerts: snapshot.preferences.notifications,
-  }));
   const [settingsSearchQuery, setSettingsSearchQuery] = useState('');
 
   useEffect(() => {
     publishPantryPilotBridge(snapshot);
   }, [snapshot]);
 
-  useEffect(() => {
-    setSettingsDraft((current) => ({
-      ...current,
+  const settingsPreferences = useMemo(
+    () => ({
+      defaultView: 'list' as const,
       density: snapshot.preferences.density,
+      expiryThresholdDays: 7 as const,
       lowStockAlerts: snapshot.preferences.notifications,
-    }));
-  }, [snapshot.preferences.density, snapshot.preferences.notifications]);
+    }),
+    [snapshot.preferences.density, snapshot.preferences.notifications],
+  );
 
-  const updateSettingsDraft = (next: SettingsPreferencesDraft) => {
-    setSettingsDraft(next);
-  };
-
-  const selectSettingsDensity = (density: SettingsPreferencesDraft['density']) => {
-    setSettingsDraft((current) => ({ ...current, density }));
-    actions.markAction(`${density === 'compact' ? 'Compact' : 'Comfortable'} density selected.`);
+  const openSettingsSearch = () => {
+    window.history.pushState(null, '', '/search');
+    actions.markAction('Settings search opened at /search.');
   };
 
   const pantryActions: Partial<Record<ItemOperationsPantrypilotQ8m6ActionId, () => void>> = {
@@ -108,19 +96,16 @@ export default function App() {
 
   const settingsActions: Partial<Record<SettingsAndPreferencesPantrypilotQ8m6ActionId, () => void>> = {
     'button-1-1': () => actions.navigate('settings'),
-    'button-2-2': () => {
-      window.history.pushState(null, '', '/search');
-      actions.markAction('Settings search opened at /search.');
-    },
+    'button-2-2': openSettingsSearch,
     'add-item-3': actions.addStarterItem,
-    'compact-4': () => selectSettingsDensity('compact'),
-    'comfortable-5': () => selectSettingsDensity('comfortable'),
+    'compact-4': () => actions.setDensity('compact'),
+    'comfortable-5': () => actions.setDensity('comfortable'),
     'manage-all-6': () => actions.navigate('pantry'),
-    'button-7-7': () => actions.markAction('Delete confirmation opened for saved filter: Expiring Soon.'),
-    'button-8-8': () => actions.markAction('Delete confirmation opened for saved filter: Baking Supplies.'),
+    'button-7-7': () => actions.focusPanel('notifications'),
+    'button-8-8': () => actions.focusPanel('storage-check'),
     'reset-to-defaults-9': actions.resetPreferences,
     'cancel-10': () => actions.navigate('pantry'),
-    'save-preferences-11': () => actSavePreferences(actions, settingsDraft),
+    'save-preferences-11': actions.savePreferences,
     'pantry-1': () => actions.navigate('pantry'),
     'insights-2': () => actions.navigate('insights'),
     'settings-3': () => actions.navigate('settings'),
@@ -149,11 +134,13 @@ export default function App() {
       {activeRoute === 'settings' && (
         <SettingsAndPreferencesPantrypilotQ8m6
           actions={settingsActions}
-          preferences={settingsDraft}
+          preferences={settingsPreferences}
           searchQuery={settingsSearchQuery}
           statusMessage={snapshot.statusMessage}
-          onPreferenceChange={updateSettingsDraft}
-          onSearchChange={setSettingsSearchQuery}
+          onSearchChange={(query) => {
+            setSettingsSearchQuery(query);
+            actions.markAction(query ? `Filtering settings for "${query}".` : 'Settings search cleared.');
+          }}
         />
       )}
       {activeRoute === 'empty' && <EmptyAndErrorRecoveryPantrypilotQ8m6 actions={emptyActions} />}
