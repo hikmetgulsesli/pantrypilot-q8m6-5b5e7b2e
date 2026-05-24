@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect } from 'react';
 import {
   EmptyAndErrorRecoveryPantrypilotQ8m6,
   ItemEditorPantrypilotQ8m6,
@@ -27,26 +27,10 @@ function InsightsPlaceholder() {
 
 export default function App() {
   const [snapshot, actions] = usePantryPilotStore();
-  const [settingsSearchQuery, setSettingsSearchQuery] = useState('');
 
   useEffect(() => {
     publishPantryPilotBridge(snapshot);
   }, [snapshot]);
-
-  const settingsPreferences = useMemo(
-    () => ({
-      defaultView: 'list' as const,
-      density: snapshot.preferences.density,
-      expiryThresholdDays: 7 as const,
-      lowStockAlerts: snapshot.preferences.notifications,
-    }),
-    [snapshot.preferences.density, snapshot.preferences.notifications],
-  );
-
-  const openSettingsSearch = () => {
-    window.history.pushState(null, '', '/search');
-    actions.markAction('Settings search opened at /search.');
-  };
 
   const pantryActions: Partial<Record<ItemOperationsPantrypilotQ8m6ActionId, () => void>> = {
     'button-1-1': () => actions.navigate('pantry'),
@@ -96,13 +80,13 @@ export default function App() {
 
   const settingsActions: Partial<Record<SettingsAndPreferencesPantrypilotQ8m6ActionId, () => void>> = {
     'button-1-1': () => actions.navigate('settings'),
-    'button-2-2': openSettingsSearch,
+    'button-2-2': () => actions.navigate('settings'),
     'add-item-3': actions.addStarterItem,
     'compact-4': () => actions.setDensity('compact'),
     'comfortable-5': () => actions.setDensity('comfortable'),
     'manage-all-6': () => actions.navigate('pantry'),
-    'button-7-7': () => actions.markAction('Delete confirmation opened for saved filter: Expiring Soon.'),
-    'button-8-8': () => actions.markAction('Delete confirmation opened for saved filter: Baking Supplies.'),
+    'button-7-7': () => actions.focusPanel('notifications'),
+    'button-8-8': () => actions.focusPanel('storage-check'),
     'reset-to-defaults-9': actions.resetPreferences,
     'cancel-10': () => actions.navigate('pantry'),
     'save-preferences-11': actions.savePreferences,
@@ -114,7 +98,23 @@ export default function App() {
     'settings-6': () => actions.navigate('settings'),
   };
 
-  const activeRoute = snapshot.activeScreen;
+  const activeRoute = snapshot.route;
+
+  const screen = (() => {
+    switch (activeRoute) {
+      case 'editor':
+        return <ItemEditorPantrypilotQ8m6 actions={editorActions} />;
+      case 'settings':
+        return <SettingsAndPreferencesPantrypilotQ8m6 actions={settingsActions} />;
+      case 'empty':
+        return <EmptyAndErrorRecoveryPantrypilotQ8m6 actions={emptyActions} />;
+      case 'insights':
+        return <InsightsPlaceholder />;
+      case 'pantry':
+      default:
+        return <ItemOperationsPantrypilotQ8m6 actions={pantryActions} />;
+    }
+  })();
 
   return (
     <div data-setfarm-root="pantrypilot-q8m6" data-active-route={snapshot.route} className="min-h-screen bg-slate-50 text-slate-950">
@@ -129,22 +129,7 @@ export default function App() {
         <span>{snapshot.statusMessage}</span>
         {snapshot.lastError && <span className="ml-2 font-semibold text-amber-700">{snapshot.lastError}</span>}
       </div>
-      {activeRoute === 'pantry' && <ItemOperationsPantrypilotQ8m6 actions={pantryActions} />}
-      {activeRoute === 'editor' && <ItemEditorPantrypilotQ8m6 actions={editorActions} />}
-      {activeRoute === 'settings' && (
-        <SettingsAndPreferencesPantrypilotQ8m6
-          actions={settingsActions}
-          preferences={settingsPreferences}
-          searchQuery={settingsSearchQuery}
-          statusMessage={snapshot.statusMessage}
-          onSearchChange={(query) => {
-            setSettingsSearchQuery(query);
-            actions.markAction(query ? `Filtering settings for "${query}".` : 'Settings search cleared.');
-          }}
-        />
-      )}
-      {activeRoute === 'empty' && <EmptyAndErrorRecoveryPantrypilotQ8m6 actions={emptyActions} />}
-      {activeRoute === 'insights' && <InsightsPlaceholder />}
+      {screen}
     </div>
   );
 }
