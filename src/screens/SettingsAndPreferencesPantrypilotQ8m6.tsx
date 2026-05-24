@@ -8,15 +8,42 @@
 // 4. Replace placeholder data with props/state
 
 import { Circle, ListFilter, Menu, Plus, Search, Settings, Trash2 } from "lucide-react";
+import type { SettingsPreferencesDraft } from "../features/surf-settings-and-preferences/act_save_preferences";
 
 
 export type SettingsAndPreferencesPantrypilotQ8m6ActionId = "button-1-1" | "button-2-2" | "add-item-3" | "compact-4" | "comfortable-5" | "manage-all-6" | "button-7-7" | "button-8-8" | "reset-to-defaults-9" | "cancel-10" | "save-preferences-11" | "pantry-1" | "insights-2" | "settings-3" | "pantry-4" | "insights-5" | "settings-6";
 
 export interface SettingsAndPreferencesPantrypilotQ8m6Props {
   actions?: Partial<Record<SettingsAndPreferencesPantrypilotQ8m6ActionId, () => void>>;
+  preferences?: SettingsPreferencesDraft;
+  searchQuery?: string;
+  statusMessage?: string;
+  onPreferenceChange?: (preferences: SettingsPreferencesDraft) => void;
+  onSearchChange?: (query: string) => void;
 }
 
-export function SettingsAndPreferencesPantrypilotQ8m6({ actions }: SettingsAndPreferencesPantrypilotQ8m6Props) {
+const DEFAULT_PREFERENCES: SettingsPreferencesDraft = {
+  defaultView: "list",
+  density: "comfortable",
+  expiryThresholdDays: 7,
+  lowStockAlerts: true,
+};
+
+export function SettingsAndPreferencesPantrypilotQ8m6({
+  actions,
+  preferences = DEFAULT_PREFERENCES,
+  searchQuery = "",
+  statusMessage,
+  onPreferenceChange,
+  onSearchChange,
+}: SettingsAndPreferencesPantrypilotQ8m6Props) {
+  const updatePreference = <Key extends keyof SettingsPreferencesDraft>(
+    key: Key,
+    value: SettingsPreferencesDraft[Key],
+  ) => {
+    onPreferenceChange?.({ ...preferences, [key]: value });
+  };
+
   return (
     <>
       {/* SideNavBar (Web/Tablet) */}
@@ -26,15 +53,15 @@ export function SettingsAndPreferencesPantrypilotQ8m6({ actions }: SettingsAndPr
       <p className="font-body-sm text-body-sm text-on-surface-variant">Management</p>
       </div>
       <div className="flex flex-col gap-xs flex-1">
-      <a className="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-highest rounded-xl transition-colors hover:scale-[0.98]" href="#" data-action-id="pantry-1" onClick={actions?.["pantry-1"]}>
+      <a className="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-highest rounded-xl transition-colors hover:scale-[0.98]" href="#" data-action-id="pantry-1" onClick={(event) => { event.preventDefault(); actions?.["pantry-1"]?.(); }}>
       <Circle className="text-lg" aria-hidden={true} focusable="false" />
       <span className="font-body-md text-body-md font-medium">Pantry</span>
       </a>
-      <a className="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-highest rounded-xl transition-colors hover:scale-[0.98]" href="#" data-action-id="insights-2" onClick={actions?.["insights-2"]}>
+      <a className="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-highest rounded-xl transition-colors hover:scale-[0.98]" href="#" data-action-id="insights-2" onClick={(event) => { event.preventDefault(); actions?.["insights-2"]?.(); }}>
       <Circle className="text-lg" aria-hidden={true} focusable="false" />
       <span className="font-body-md text-body-md font-medium">Insights</span>
       </a>
-      <a className="flex items-center gap-md px-md py-sm bg-primary-container text-on-primary-container rounded-xl transition-colors hover:scale-[0.98]" href="#" data-action-id="settings-3" onClick={actions?.["settings-3"]}>
+      <a className="flex items-center gap-md px-md py-sm bg-primary-container text-on-primary-container rounded-xl transition-colors hover:scale-[0.98]" href="#" data-action-id="settings-3" onClick={(event) => { event.preventDefault(); actions?.["settings-3"]?.(); }}>
       <Settings data-weight="fill" style={{fontVariationSettings: "'FILL' 1"}} className="text-lg" aria-hidden={true} focusable="false" />
       <span className="font-body-md text-body-md font-bold">Settings</span>
       </a>
@@ -56,7 +83,7 @@ export function SettingsAndPreferencesPantrypilotQ8m6({ actions }: SettingsAndPr
       <div className="flex items-center gap-md">
       <div className="relative hidden sm:flex items-center">
       <Search className="absolute left-sm text-on-surface-variant text-sm pointer-events-none" aria-hidden={true} focusable="false" />
-      <input className="w-64 pl-xl pr-sm py-xs bg-surface-container-low border border-outline-variant rounded-full font-body-sm text-body-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" placeholder="Search settings..." type="text" />
+      <input className="w-64 pl-xl pr-sm py-xs bg-surface-container-low border border-outline-variant rounded-full font-body-sm text-body-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" placeholder="Search settings..." type="text" value={searchQuery} onChange={(event) => onSearchChange?.(event.currentTarget.value)} />
       </div>
       <button className="md:hidden text-on-surface-variant hover:bg-surface-container-low p-sm rounded-full transition-colors" type="button" data-action-id="button-2-2" onClick={actions?.["button-2-2"]}>
       <Search aria-hidden={true} focusable="false" />
@@ -89,14 +116,14 @@ export function SettingsAndPreferencesPantrypilotQ8m6({ actions }: SettingsAndPr
       <label className="block font-label-bold text-label-bold text-on-surface-variant mb-sm uppercase tracking-wider">Default View</label>
       <div className="flex gap-md">
       <label className="flex-1 cursor-pointer">
-      <input checked={true} className="peer sr-only" name="default_view" type="radio" value="list" />
+      <input checked={preferences.defaultView === "list"} className="peer sr-only" name="default_view" type="radio" value="list" onChange={() => updatePreference("defaultView", "list")} />
       <div className="p-md border border-outline-variant rounded-lg peer-checked:border-primary peer-checked:bg-primary-container/10 transition-colors flex items-center justify-center gap-sm">
       <Circle className="text-on-surface-variant peer-checked:text-primary" aria-hidden={true} focusable="false" />
       <span className="font-body-md text-body-md font-medium">List View</span>
       </div>
       </label>
       <label className="flex-1 cursor-pointer">
-      <input className="peer sr-only" name="default_view" type="radio" value="grid" />
+      <input checked={preferences.defaultView === "grid"} className="peer sr-only" name="default_view" type="radio" value="grid" onChange={() => updatePreference("defaultView", "grid")} />
       <div className="p-md border border-outline-variant rounded-lg peer-checked:border-primary peer-checked:bg-primary-container/10 transition-colors flex items-center justify-center gap-sm">
       <Circle className="text-on-surface-variant peer-checked:text-primary" aria-hidden={true} focusable="false" />
       <span className="font-body-md text-body-md font-medium">Grid View</span>
@@ -109,11 +136,11 @@ export function SettingsAndPreferencesPantrypilotQ8m6({ actions }: SettingsAndPr
       <label className="block font-label-bold text-label-bold text-on-surface-variant mb-sm uppercase tracking-wider">Display Density</label>
       <div className="bg-surface-container-low rounded-lg border border-outline-variant p-sm flex gap-sm relative">
       {/* Decorative indicator for active state */}
-      <div className="absolute left-sm top-sm bottom-sm w-[calc(50%-6px)] bg-surface-container-lowest border border-outline shadow-sm rounded-md transition-transform duration-300 ease-in-out" id="density-indicator"></div>
-      <button className="flex-1 py-sm px-md text-center z-10 relative font-body-sm text-body-sm font-medium text-on-surface transition-colors" type="button" data-action-id="compact-4" onClick={actions?.["compact-4"]}>
+      <div className="absolute left-sm top-sm bottom-sm w-[calc(50%-6px)] bg-surface-container-lowest border border-outline shadow-sm rounded-md transition-transform duration-300 ease-in-out" id="density-indicator" style={{ transform: preferences.density === "comfortable" ? "translateX(calc(100% + 8px))" : "translateX(0)" }}></div>
+      <button className={`flex-1 py-sm px-md text-center z-10 relative font-body-sm text-body-sm font-medium transition-colors ${preferences.density === "compact" ? "text-on-surface" : "text-on-surface-variant hover:text-on-surface"}`} type="button" data-action-id="compact-4" onClick={actions?.["compact-4"]} aria-pressed={preferences.density === "compact"}>
                                               Compact
                                           </button>
-      <button className="flex-1 py-sm px-md text-center z-10 relative font-body-sm text-body-sm font-medium text-on-surface-variant hover:text-on-surface transition-colors" type="button" data-action-id="comfortable-5" onClick={actions?.["comfortable-5"]}>
+      <button className={`flex-1 py-sm px-md text-center z-10 relative font-body-sm text-body-sm font-medium transition-colors ${preferences.density === "comfortable" ? "text-on-surface" : "text-on-surface-variant hover:text-on-surface"}`} type="button" data-action-id="comfortable-5" onClick={actions?.["comfortable-5"]} aria-pressed={preferences.density === "comfortable"}>
                                               Comfortable
                                           </button>
       </div>
@@ -132,9 +159,9 @@ export function SettingsAndPreferencesPantrypilotQ8m6({ actions }: SettingsAndPr
       <label className="block font-label-bold text-label-bold text-on-surface-variant mb-xs uppercase tracking-wider">Expiry Threshold</label>
       <p className="font-body-sm text-body-sm text-on-surface-variant mb-sm">Notify me when items expire in:</p>
       <div className="relative">
-      <select className="w-full appearance-none bg-surface border border-outline-variant rounded-lg py-sm pl-md pr-xl font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors cursor-pointer">
+      <select className="w-full appearance-none bg-surface border border-outline-variant rounded-lg py-sm pl-md pr-xl font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors cursor-pointer" value={String(preferences.expiryThresholdDays)} onChange={(event) => updatePreference("expiryThresholdDays", Number(event.currentTarget.value) as SettingsPreferencesDraft["expiryThresholdDays"])}>
       <option value="3">3 Days</option>
-      <option selected={true} value="7">7 Days</option>
+      <option value="7">7 Days</option>
       <option value="14">14 Days</option>
       <option value="30">30 Days</option>
       </select>
@@ -143,7 +170,7 @@ export function SettingsAndPreferencesPantrypilotQ8m6({ actions }: SettingsAndPr
       <div className="flex items-center justify-between pt-md border-t border-surface-container-high mt-md">
       <span className="font-body-md text-body-md font-medium">Low Stock Alerts</span>
       <label className="relative inline-flex items-center cursor-pointer">
-      <input checked={true} className="sr-only peer" type="checkbox" value="" />
+      <input checked={preferences.lowStockAlerts} className="sr-only peer" type="checkbox" value="" onChange={(event) => updatePreference("lowStockAlerts", event.currentTarget.checked)} />
       <div className="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-surface after:border-outline-variant after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
       </label>
       </div>
@@ -205,22 +232,22 @@ export function SettingsAndPreferencesPantrypilotQ8m6({ actions }: SettingsAndPr
       </div>
       </main>
       {/* Toast Notification (Hidden by default) */}
-      <div className="absolute bottom-margin-desktop left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface px-lg py-sm rounded-lg shadow-md flex items-center gap-sm font-body-md text-body-md transition-colors duration-300 opacity-0 pointer-events-none translate-y-4 z-50" id="toast">
+      <div className={`absolute bottom-margin-desktop left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface px-lg py-sm rounded-lg shadow-md flex items-center gap-sm font-body-md text-body-md transition-colors duration-300 pointer-events-none z-50 ${statusMessage ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`} id="toast">
       <Circle className="text-inverse-primary text-sm" aria-hidden={true} focusable="false" />
-                  Preferences saved successfully
+                  {statusMessage ?? "Preferences saved successfully"}
               </div>
       </div>
       {/* BottomNavBar (Mobile Only - Replaces SideNav) */}
       <nav className="md:hidden flex items-center justify-around w-full h-16 bg-surface-container-low border-t border-outline-variant pb-safe flex-shrink-0 z-20">
-      <a className="flex flex-col items-center justify-center gap-1 w-full h-full text-on-surface-variant hover:bg-surface-container-highest transition-colors" href="#" data-action-id="pantry-4" onClick={actions?.["pantry-4"]}>
+      <a className="flex flex-col items-center justify-center gap-1 w-full h-full text-on-surface-variant hover:bg-surface-container-highest transition-colors" href="#" data-action-id="pantry-4" onClick={(event) => { event.preventDefault(); actions?.["pantry-4"]?.(); }}>
       <Circle aria-hidden={true} focusable="false" />
       <span className="font-label-bold text-label-bold text-[10px]">Pantry</span>
       </a>
-      <a className="flex flex-col items-center justify-center gap-1 w-full h-full text-on-surface-variant hover:bg-surface-container-highest transition-colors" href="#" data-action-id="insights-5" onClick={actions?.["insights-5"]}>
+      <a className="flex flex-col items-center justify-center gap-1 w-full h-full text-on-surface-variant hover:bg-surface-container-highest transition-colors" href="#" data-action-id="insights-5" onClick={(event) => { event.preventDefault(); actions?.["insights-5"]?.(); }}>
       <Circle aria-hidden={true} focusable="false" />
       <span className="font-label-bold text-label-bold text-[10px]">Insights</span>
       </a>
-      <a className="flex flex-col items-center justify-center gap-1 w-full h-full text-primary relative" href="#" data-action-id="settings-6" onClick={actions?.["settings-6"]}>
+      <a className="flex flex-col items-center justify-center gap-1 w-full h-full text-primary relative" href="#" data-action-id="settings-6" onClick={(event) => { event.preventDefault(); actions?.["settings-6"]?.(); }}>
       <div className="absolute inset-x-4 top-1 bottom-1 bg-primary-container rounded-xl -z-10"></div>
       <Settings data-weight="fill" style={{fontVariationSettings: "'FILL' 1"}} aria-hidden={true} focusable="false" />
       <span className="font-label-bold text-label-bold text-[10px] text-on-primary-container">Settings</span>

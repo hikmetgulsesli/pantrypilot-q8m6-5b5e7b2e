@@ -5,20 +5,12 @@ import {
   ItemOperationsPantrypilotQ8m6,
   SettingsAndPreferencesPantrypilotQ8m6,
   type EmptyAndErrorRecoveryPantrypilotQ8m6ActionId,
+  type ItemEditorPantrypilotQ8m6ActionId,
   type ItemOperationsPantrypilotQ8m6ActionId,
   type SettingsAndPreferencesPantrypilotQ8m6ActionId,
 } from './screens';
-import type { ItemEditorPantrypilotQ8m6Actions } from './screens/ItemEditorPantrypilotQ8m6';
 import { usePantryPilotStore } from './features/pantrypilot-q8m6/pantrypilot-q8m6.store';
-import { actCancelEdit } from './features/surf-item-editor/act_cancel_edit';
-import { actSaveRecord } from './features/surf-item-editor/act_save_record';
-import { actCreateRecord } from './features/surf-item-operations/act_create_record';
-import { actRetryLoad } from './features/surf-item-operations/act_retry_load';
-import { actSearchRecords } from './features/surf-item-operations/act_search_records';
-import { actSelectRecord } from './features/surf-item-operations/act_select_record';
 import { publishPantryPilotBridge } from './test/bridge';
-import { loadPantryPilotState } from './features/pantrypilot-q8m6/pantrypilot-q8m6.repo';
-import type { PantryItem } from './__fixtures__/pantrypilot-q8m6.fixture';
 
 function InsightsPlaceholder() {
   return (
@@ -33,17 +25,8 @@ function InsightsPlaceholder() {
   );
 }
 
-function mergeVisiblePantryItems(snapshotItem: PantryItem | null): PantryItem[] {
-  const persistedItems = loadPantryPilotState().state.items;
-
-  if (!snapshotItem) return persistedItems;
-
-  return [snapshotItem, ...persistedItems.filter((item) => item.id !== snapshotItem.id)];
-}
-
 export default function App() {
   const [snapshot, actions] = usePantryPilotStore();
-  const pantryItems = mergeVisiblePantryItems(snapshot.selectedRecord);
 
   useEffect(() => {
     publishPantryPilotBridge(snapshot);
@@ -51,13 +34,13 @@ export default function App() {
 
   const pantryActions: Partial<Record<ItemOperationsPantrypilotQ8m6ActionId, () => void>> = {
     'button-1-1': () => actions.navigate('pantry'),
-    'sync-2': () => actRetryLoad(actions),
-    'add-item-3': () => actCreateRecord(actions),
-    'all-items-4': () => actSearchRecords(actions),
-    'produce-5': () => actSearchRecords(actions, { category: 'produce' }),
-    'dairy-6': () => actSearchRecords(actions, { category: 'dairy' }),
-    'canned-goods-7': () => actSearchRecords(actions, { category: 'canned-goods' }),
-    'expiring-8': () => actSearchRecords(actions, { category: 'expiring' }),
+    'sync-2': actions.retryLoad,
+    'add-item-3': actions.addStarterItem,
+    'all-items-4': () => actions.focusPanel('all-items'),
+    'produce-5': () => actions.focusPanel('produce'),
+    'dairy-6': () => actions.focusPanel('dairy'),
+    'canned-goods-7': () => actions.focusPanel('canned-goods'),
+    'expiring-8': () => actions.focusPanel('expiring'),
     'button-9-9': () => actions.focusPanel('meal-plan'),
     'button-10-10': () => actions.focusPanel('inventory-health'),
     'button-11-11': () => actions.focusPanel('shopping-priority'),
@@ -65,7 +48,7 @@ export default function App() {
     'button-13-13': () => actions.markAction('Pantry list view refreshed.'),
     'button-14-14': () => actions.markAction('Pantry quantity review marked complete.'),
     'button-15-15': () => actions.markAction('Pantry planning queue updated.'),
-    'edit-16': () => actSelectRecord(actions),
+    'edit-16': actions.selectFirstItem,
     'reorder-17': actions.reorderSelected,
     'pantry-1': () => actions.navigate('pantry'),
     'insights-2': () => actions.navigate('insights'),
@@ -73,22 +56,22 @@ export default function App() {
   };
 
   const emptyActions: Partial<Record<EmptyAndErrorRecoveryPantrypilotQ8m6ActionId, () => void>> = {
-    'add-item-1': () => actCreateRecord(actions),
-    'retry-load-2': () => actRetryLoad(actions),
-    'create-first-item-3': () => actCreateRecord(actions),
+    'add-item-1': actions.addStarterItem,
+    'retry-load-2': actions.retryLoad,
+    'create-first-item-3': actions.addStarterItem,
     'clear-all-filters-4': actions.clearFilters,
     'pantry-1': () => actions.navigate('pantry'),
     'insights-2': () => actions.navigate('insights'),
     'settings-3': () => actions.navigate('settings'),
   };
 
-  const editorActions: ItemEditorPantrypilotQ8m6Actions = {
+  const editorActions: Partial<Record<ItemEditorPantrypilotQ8m6ActionId, () => void>> = {
     'button-1-1': () => actions.navigate('pantry'),
-    'add-item-2': () => actCreateRecord(actions),
-    'button-3-3': () => actions.markAction('Item quantity decreased.'),
-    'button-4-4': () => actions.markAction('Item quantity increased.'),
-    'cancel-5': () => actCancelEdit(actions),
-    'save-changes-6': (draft) => actSaveRecord(actions, snapshot.selectedRecord, draft),
+    'add-item-2': actions.addStarterItem,
+    'button-3-3': () => actions.markAction('Item category details updated.'),
+    'button-4-4': () => actions.markAction('Item expiration details updated.'),
+    'cancel-5': () => actions.navigate('pantry'),
+    'save-changes-6': () => actions.navigate('pantry'),
     'pantry-1': () => actions.navigate('pantry'),
     'insights-2': () => actions.navigate('insights'),
     'settings-3': () => actions.navigate('settings'),
@@ -98,7 +81,7 @@ export default function App() {
   const settingsActions: Partial<Record<SettingsAndPreferencesPantrypilotQ8m6ActionId, () => void>> = {
     'button-1-1': () => actions.navigate('settings'),
     'button-2-2': () => actions.navigate('settings'),
-    'add-item-3': () => actCreateRecord(actions),
+    'add-item-3': actions.addStarterItem,
     'compact-4': () => actions.setDensity('compact'),
     'comfortable-5': () => actions.setDensity('comfortable'),
     'manage-all-6': () => actions.navigate('pantry'),
@@ -115,7 +98,23 @@ export default function App() {
     'settings-6': () => actions.navigate('settings'),
   };
 
-  const activeRoute = snapshot.activeScreen;
+  const activeRoute = snapshot.route;
+
+  const screen = (() => {
+    switch (activeRoute) {
+      case 'editor':
+        return <ItemEditorPantrypilotQ8m6 actions={editorActions} />;
+      case 'settings':
+        return <SettingsAndPreferencesPantrypilotQ8m6 actions={settingsActions} />;
+      case 'empty':
+        return <EmptyAndErrorRecoveryPantrypilotQ8m6 actions={emptyActions} />;
+      case 'insights':
+        return <InsightsPlaceholder />;
+      case 'pantry':
+      default:
+        return <ItemOperationsPantrypilotQ8m6 actions={pantryActions} />;
+    }
+  })();
 
   return (
     <div data-setfarm-root="pantrypilot-q8m6" data-active-route={snapshot.route} className="min-h-screen bg-slate-50 text-slate-950">
@@ -130,18 +129,7 @@ export default function App() {
         <span>{snapshot.statusMessage}</span>
         {snapshot.lastError && <span className="ml-2 font-semibold text-amber-700">{snapshot.lastError}</span>}
       </div>
-      {activeRoute === 'pantry' && (
-        <ItemOperationsPantrypilotQ8m6
-          actions={pantryActions}
-          counts={snapshot.counts}
-          items={pantryItems}
-          selectedItem={snapshot.selectedRecord}
-        />
-      )}
-      {activeRoute === 'editor' && <ItemEditorPantrypilotQ8m6 actions={editorActions} item={snapshot.selectedRecord} />}
-      {activeRoute === 'settings' && <SettingsAndPreferencesPantrypilotQ8m6 actions={settingsActions} />}
-      {activeRoute === 'empty' && <EmptyAndErrorRecoveryPantrypilotQ8m6 actions={emptyActions} />}
-      {activeRoute === 'insights' && <InsightsPlaceholder />}
+      {screen}
     </div>
   );
 }
