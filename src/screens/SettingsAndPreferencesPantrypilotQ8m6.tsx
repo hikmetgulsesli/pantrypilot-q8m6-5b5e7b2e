@@ -53,15 +53,15 @@ export function SettingsAndPreferencesPantrypilotQ8m6({
       <p className="font-body-sm text-body-sm text-on-surface-variant">Management</p>
       </div>
       <div className="flex flex-col gap-xs flex-1">
-      <a className="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-highest rounded-xl transition-colors hover:scale-[0.98]" href="#" data-action-id="pantry-1" onClick={actions?.["pantry-1"]}>
+      <a className="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-highest rounded-xl transition-colors hover:scale-[0.98]" href="#" data-action-id="pantry-1" onClick={(event) => { event.preventDefault(); actions?.["pantry-1"]?.(); }}>
       <Circle className="text-lg" aria-hidden={true} focusable="false" />
       <span className="font-body-md text-body-md font-medium">Pantry</span>
       </a>
-      <a className="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-highest rounded-xl transition-colors hover:scale-[0.98]" href="#" data-action-id="insights-2" onClick={actions?.["insights-2"]}>
+      <a className="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-highest rounded-xl transition-colors hover:scale-[0.98]" href="#" data-action-id="insights-2" onClick={(event) => { event.preventDefault(); actions?.["insights-2"]?.(); }}>
       <Circle className="text-lg" aria-hidden={true} focusable="false" />
       <span className="font-body-md text-body-md font-medium">Insights</span>
       </a>
-      <a className="flex items-center gap-md px-md py-sm bg-primary-container text-on-primary-container rounded-xl transition-colors hover:scale-[0.98]" href="#" data-action-id="settings-3" onClick={actions?.["settings-3"]}>
+      <a className="flex items-center gap-md px-md py-sm bg-primary-container text-on-primary-container rounded-xl transition-colors hover:scale-[0.98]" href="#" data-action-id="settings-3" onClick={(event) => { event.preventDefault(); actions?.["settings-3"]?.(); }}>
       <Settings data-weight="fill" style={{fontVariationSettings: "'FILL' 1"}} className="text-lg" aria-hidden={true} focusable="false" />
       <span className="font-body-md text-body-md font-bold">Settings</span>
       </a>
@@ -239,15 +239,15 @@ export function SettingsAndPreferencesPantrypilotQ8m6({
       </div>
       {/* BottomNavBar (Mobile Only - Replaces SideNav) */}
       <nav className="md:hidden flex items-center justify-around w-full h-16 bg-surface-container-low border-t border-outline-variant pb-safe flex-shrink-0 z-20">
-      <a className="flex flex-col items-center justify-center gap-1 w-full h-full text-on-surface-variant hover:bg-surface-container-highest transition-colors" href="#" data-action-id="pantry-4" onClick={actions?.["pantry-4"]}>
+      <a className="flex flex-col items-center justify-center gap-1 w-full h-full text-on-surface-variant hover:bg-surface-container-highest transition-colors" href="#" data-action-id="pantry-4" onClick={(event) => { event.preventDefault(); actions?.["pantry-4"]?.(); }}>
       <Circle aria-hidden={true} focusable="false" />
       <span className="font-label-bold text-label-bold text-[10px]">Pantry</span>
       </a>
-      <a className="flex flex-col items-center justify-center gap-1 w-full h-full text-on-surface-variant hover:bg-surface-container-highest transition-colors" href="#" data-action-id="insights-5" onClick={actions?.["insights-5"]}>
+      <a className="flex flex-col items-center justify-center gap-1 w-full h-full text-on-surface-variant hover:bg-surface-container-highest transition-colors" href="#" data-action-id="insights-5" onClick={(event) => { event.preventDefault(); actions?.["insights-5"]?.(); }}>
       <Circle aria-hidden={true} focusable="false" />
       <span className="font-label-bold text-label-bold text-[10px]">Insights</span>
       </a>
-      <a className="flex flex-col items-center justify-center gap-1 w-full h-full text-primary relative" href="#" data-action-id="settings-6" onClick={actions?.["settings-6"]}>
+      <a className="flex flex-col items-center justify-center gap-1 w-full h-full text-primary relative" href="#" data-action-id="settings-6" onClick={(event) => { event.preventDefault(); actions?.["settings-6"]?.(); }}>
       <div className="absolute inset-x-4 top-1 bottom-1 bg-primary-container rounded-xl -z-10"></div>
       <Settings data-weight="fill" style={{fontVariationSettings: "'FILL' 1"}} aria-hidden={true} focusable="false" />
       <span className="font-label-bold text-label-bold text-[10px] text-on-primary-container">Settings</span>

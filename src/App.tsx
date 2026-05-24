@@ -108,7 +108,10 @@ export default function App() {
 
   const settingsActions: Partial<Record<SettingsAndPreferencesPantrypilotQ8m6ActionId, () => void>> = {
     'button-1-1': () => actions.navigate('settings'),
-    'button-2-2': () => actions.markAction(settingsSearchQuery ? `Searching settings for "${settingsSearchQuery}".` : 'Settings search opened.'),
+    'button-2-2': () => {
+      window.history.pushState(null, '', '/search');
+      actions.markAction(settingsSearchQuery ? `Searching settings for "${settingsSearchQuery}" at /search.` : 'Settings search opened at /search.');
+    },
     'add-item-3': actions.addStarterItem,
     'compact-4': () => {
       setSettingsDraft((current) => ({ ...current, density: 'compact' }));
@@ -119,8 +122,8 @@ export default function App() {
       actions.markAction('Comfortable density selected.');
     },
     'manage-all-6': () => actions.navigate('pantry'),
-    'button-7-7': () => actions.focusPanel('notifications'),
-    'button-8-8': () => actions.focusPanel('storage-check'),
+    'button-7-7': () => actions.markAction('Delete confirmation opened for saved filter: Expiring Soon.'),
+    'button-8-8': () => actions.markAction('Delete confirmation opened for saved filter: Baking Supplies.'),
     'reset-to-defaults-9': actions.resetPreferences,
     'cancel-10': () => actions.navigate('pantry'),
     'save-preferences-11': () => {
