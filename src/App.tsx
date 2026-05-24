@@ -17,6 +17,8 @@ import { actRetryLoad } from './features/surf-item-operations/act_retry_load';
 import { actSearchRecords } from './features/surf-item-operations/act_search_records';
 import { actSelectRecord } from './features/surf-item-operations/act_select_record';
 import { publishPantryPilotBridge } from './test/bridge';
+import { loadPantryPilotState } from './features/pantrypilot-q8m6/pantrypilot-q8m6.repo';
+import type { PantryItem } from './__fixtures__/pantrypilot-q8m6.fixture';
 
 function InsightsPlaceholder() {
   return (
@@ -31,8 +33,17 @@ function InsightsPlaceholder() {
   );
 }
 
+function mergeVisiblePantryItems(snapshotItem: PantryItem | null): PantryItem[] {
+  const persistedItems = loadPantryPilotState().state.items;
+
+  if (!snapshotItem) return persistedItems;
+
+  return [snapshotItem, ...persistedItems.filter((item) => item.id !== snapshotItem.id)];
+}
+
 export default function App() {
   const [snapshot, actions] = usePantryPilotStore();
+  const pantryItems = mergeVisiblePantryItems(snapshot.selectedRecord);
 
   useEffect(() => {
     publishPantryPilotBridge(snapshot);
@@ -119,7 +130,14 @@ export default function App() {
         <span>{snapshot.statusMessage}</span>
         {snapshot.lastError && <span className="ml-2 font-semibold text-amber-700">{snapshot.lastError}</span>}
       </div>
-      {activeRoute === 'pantry' && <ItemOperationsPantrypilotQ8m6 actions={pantryActions} />}
+      {activeRoute === 'pantry' && (
+        <ItemOperationsPantrypilotQ8m6
+          actions={pantryActions}
+          counts={snapshot.counts}
+          items={pantryItems}
+          selectedItem={snapshot.selectedRecord}
+        />
+      )}
       {activeRoute === 'editor' && <ItemEditorPantrypilotQ8m6 actions={editorActions} item={snapshot.selectedRecord} />}
       {activeRoute === 'settings' && <SettingsAndPreferencesPantrypilotQ8m6 actions={settingsActions} />}
       {activeRoute === 'empty' && <EmptyAndErrorRecoveryPantrypilotQ8m6 actions={emptyActions} />}
