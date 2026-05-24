@@ -7,7 +7,9 @@ const CATEGORY_TO_PANEL = new Map<string, PantryPilotPanel>([
   ['expiring', 'expiring'],
 ]);
 
-const PANTRY_SEARCH_STATUS = (query: string) => `Searching pantry records for "${query}".`;
+export const PANTRY_ITEM_OPERATION_MESSAGES = {
+  searchStatus: (query: string) => `Searching pantry records for "${query}".`,
+} as const;
 
 export type SearchRecordsInput = {
   query?: string;
@@ -19,7 +21,7 @@ export function actSearchRecords(actions: Pick<PantryPilotActions, 'clearFilters
 
   if (query) {
     actions.focusPanel('all-items');
-    actions.markAction(PANTRY_SEARCH_STATUS(query));
+    actions.markAction(PANTRY_ITEM_OPERATION_MESSAGES.searchStatus(query));
     return;
   }
 
